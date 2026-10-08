@@ -2,6 +2,8 @@
 
 A clickable mobile loyalty app mockup, informed by the supplied Blank Street screenshots and Docee's branding. The preview uses the real Docee mascot, custom generated café artwork, biscuit beige surfaces and blue accents. A separate research view includes Yo-Chi's logo.
 
+Try the [live demo](https://docee-averse-s-projects.vercel.app/). The [Vercel project](https://vercel.com/averse-s-projects/docee) is connected to `main` in [13V/docee](https://github.com/13V/docee).
+
 ## Run locally
 
 Node.js 24 is required. No package installation is needed.
