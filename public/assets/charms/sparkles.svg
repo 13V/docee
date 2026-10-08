@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" aria-labelledby="title">
+  <title id="title">A little sparkle cluster</title>
+  <g stroke="#0000FB" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3.3" d="M49 22c1 17 5 23 18 27-13 3-18 10-20 25-2-16-6-22-20-26 14-3 19-10 22-26Z"/>
+    <path stroke-width="2.9" d="M74 14c0 7 2 10 8 12-6 1-8 5-9 11-1-7-3-10-9-12 6-1 9-4 10-11Z"/>
+    <path stroke-width="2.8" d="m75 65-1 16m-7-9 15 2"/>
+    <path stroke-width="2.8" d="m24 17 1 6m-4-3 7 1"/>
+    <path stroke-width="3.6" d="m24 72-.5.5"/>
+  </g>
+</svg>

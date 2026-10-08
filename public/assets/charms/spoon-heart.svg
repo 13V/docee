@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" aria-labelledby="title">
+  <title id="title">Spoon and a tiny heart</title>
+  <g stroke="#0000FB" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3.5" d="M51 46c-7-1-9-8-6-16 3-9 12-16 18-14 7 2 7 11 3 19-3 7-8 12-12 12L36 82c-2 4-5 5-8 3-2-1-2-4 0-7Z"/>
+    <path stroke-width="2.5" d="M59 23c-5 3-8 9-8 14"/>
+    <path stroke-width="3" d="M64 67c-8-5-10-10-7-13 3-3 7-1 8 2 3-3 7-3 9 0 3 4-2 8-10 11Z"/>
+    <path stroke-width="2.8" d="m76 38 4-3m-4 10 5 1"/>
+  </g>
+</svg>

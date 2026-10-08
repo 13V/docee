@@ -1,0 +1,15 @@
+{
+  "name": "docee-loyalty-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Docee loyalty app prototype with a static Vercel deployment",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check app.js && node --check server.mjs && node --check scripts/build.mjs"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

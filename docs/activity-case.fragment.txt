@@ -1,0 +1,27 @@
+    case 'activity': {
+      const entries = state.history.filter(h=>state.historyFilter==='All'||h.type===state.historyFilter.toLowerCase());
+      const monthNames = {Jan:'January',Feb:'February',Mar:'March',Apr:'April',May:'May',Jun:'June',Jul:'July',Aug:'August',Sep:'September',Oct:'October',Nov:'November',Dec:'December'};
+      const groups = new Map();
+      entries.forEach(entry=>{
+        const [,month,year] = entry.date.match(/^\d{1,2}\s+([A-Za-z]+)\s+(\d{4})$/) || [];
+        const label = month ? `${monthNames[month.slice(0,3)] || month} ${year}` : 'Recent activity';
+        if(!groups.has(label)) groups.set(label,[]);
+        groups.get(label).push(entry);
+      });
+      const earnedPoints = state.history.reduce((total,entry)=>total+(entry.type==='earned'?entry.points:0),0);
+      const redeemedCount = state.history.filter(entry=>entry.type==='redeemed').length;
+      const visitCount = state.history.filter(entry=>entry.type==='earned'&&entry.title.startsWith('A visit to ')).length;
+      const historyGroups = [...groups].map(([month,items])=>`<section class="passport-month"><h2>${escapeHtml(month)}</h2><ol class="passport-trail">${items.map(h=>{
+        const isVisit = h.title.startsWith('A visit to ');
+        const isReceipt = h.id.startsWith('receipt') || /receipt/i.test(h.title);
+        const title = isVisit ? h.title.slice('A visit to '.length) : h.title;
+        const symbol = h.type==='redeemed'?'gift':isReceipt?'receipt':isVisit?'pin':'plus';
+        const [,day,shortMonth,year] = h.date.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/) || [];
+        const stamp = day ? `<time class="passport-date-stamp" datetime="${year}-${String(Object.keys(monthNames).indexOf(shortMonth.slice(0,3))+1).padStart(2,'0')}-${day.padStart(2,'0')}" aria-label="${escapeHtml(h.date)}"><strong>${day.padStart(2,'0')}</strong><span>${escapeHtml(shortMonth.slice(0,3))}</span></time>` : `<span class="passport-date-stamp passport-date-fallback">${icon(symbol)}<span>${escapeHtml(h.date)}</span></span>`;
+        return `<li class="passport-entry ${h.type}">${stamp}<div class="passport-entry-copy"><strong>${escapeHtml(title)}</strong><p>${escapeHtml(h.caption)}</p><span class="passport-entry-kind">${icon(symbol)} ${h.type==='redeemed'?'Reward redeemed':isReceipt?'Receipt claim':isVisit?'In-store visit':'Points earned'}</span></div><div class="passport-entry-points"><strong>${h.points>0?'+':''}${h.points}</strong><span>points</span></div></li>`;
+      }).join('')}</ol></section>`).join('');
+      const emptyHeading = state.historyFilter==='Redeemed' ? 'Your first treat is waiting.' : state.historyFilter==='Earned' ? 'Your next visit starts here.' : 'Let’s make a little history.';
+      const emptyCopy = state.historyFilter==='Redeemed' ? 'Save a reward and it will leave a stamp here.' : 'Visits, receipt claims and rewards will appear along your trail.';
+      body = `${pageHeader('Your activity','account')}<div class="passport-intro"><span class="passport-eyebrow">THE DOCEE VISIT PASSPORT</span><h1>Good things<br/>add up.</h1></div><section class="passport-points" aria-label="Your points and visits"><div class="passport-points-copy"><span>Your points</span><strong>${state.points}<small>pts</small></strong><button class="passport-rewards-link" data-action="screen" data-screen="rewards">A treat in the making ${icon('arrow')}</button></div><img class="passport-hero-charms" src="${assets}generated/activity-charms.png" alt="" aria-hidden="true"/><div class="passport-visit-seal" aria-label="${visitCount} recorded ${visitCount===1?'visit':'visits'}"><strong>${String(visitCount).padStart(2,'0')}</strong><span>${visitCount===1?'VISIT':'VISITS'}<br/>& COUNTING</span></div><p class="passport-points-caption"><span>${earnedPoints} points earned</span><span>${redeemedCount} ${redeemedCount===1?'reward':'rewards'} redeemed</span></p></section><div class="segmented-control passport-filters" aria-label="Filter activity">${['All','Earned','Redeemed'].map(f=>`<button data-action="history-filter" data-filter="${f}" aria-pressed="${state.historyFilter===f}" class="${state.historyFilter===f?'selected':''}">${f}</button>`).join('')}</div><div class="passport-history">${entries.length?historyGroups:`<div class="passport-empty">${icon('gift')}<h2>${emptyHeading}</h2><p>${emptyCopy}</p><button class="passport-rewards-link" data-action="screen" data-screen="rewards">Explore rewards ${icon('arrow')}</button></div>`}</div>`;
+      break;
+    }

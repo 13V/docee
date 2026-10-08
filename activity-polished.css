@@ -1,0 +1,30 @@
+/* History layout measured against the supplied Orders history and Gift history screens. */
+.screen-activity{background:var(--surface-cream)}
+.screen-activity .app-scroll{background:var(--surface-cream);padding:0 20px 30px}
+.screen-activity .page-header{min-height:49px;margin-bottom:17px}
+.screen-activity .page-header .icon-button{background:var(--beige);width:31px;height:31px}
+.activity-ledger-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 28px}
+.screen-activity .activity-ledger-heading h1{font-size:28px;line-height:34px;font-weight:650;letter-spacing:-.8px;margin:0}
+.ledger-pill{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:7px 13px;border:0;border-radius:20px;background:var(--beige);color:var(--ink);font-size:11px;font-weight:650;line-height:14px;letter-spacing:.65px;white-space:nowrap}
+.activity-ledger-heading>.ledger-pill{font-size:10px;min-height:26px;padding:6px 11px}
+.activity-ledger-entry{padding:0 0 20px;margin:0 0 31px;border-bottom:1px solid #493B291C}
+.activity-ledger-date{font-size:12px;font-weight:500;line-height:17px;letter-spacing:0;text-transform:uppercase;color:#36322C;margin:0 0 7px}
+.activity-ledger-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 17px}
+.screen-activity .activity-ledger-title h2{font-size:18px;line-height:23px;font-weight:600;letter-spacing:-.35px;margin:0;color:#292623}
+.activity-ledger-title>strong{font-size:18px;line-height:23px;font-weight:600;letter-spacing:-.35px;white-space:nowrap;color:#292623;font-variant-numeric:tabular-nums}
+.activity-ledger-title small{font-size:11px;letter-spacing:0;font-weight:400;color:var(--muted)}
+.ledger-empty{padding:12px 0}
+.screen-activity .ledger-empty h2{font-size:20px;line-height:26px}
+.ledger-empty p{font-size:14px;line-height:22px;margin:12px 0 28px;color:var(--muted)}
+.ledger-filter-options{display:flex;flex-direction:column;gap:12px}
+.app-sheet .ledger-filter-options .button{margin:0}
+.ledger-filter-options .button.secondary{background:var(--beige)}
+.screen-activity .app-sheet{background:var(--surface-cream);font-family:inherit}
+.screen-activity .app-sheet>h2{font-weight:650;letter-spacing:-.6px}
+.app-sheet .ledger-detail-date{font-size:12px;line-height:18px;margin:0 0 16px}
+.ledger-detail-card{border:1px solid #493B2918;border-radius:16px;padding:16px}
+.ledger-detail-card>span{font-size:10px;font-weight:600;letter-spacing:.2px}
+.ledger-detail-card>h3{font-size:18px;font-weight:600;margin:7px 0}
+.app-sheet .ledger-detail-card>p{font-size:13px;line-height:20px;margin:0 0 20px}
+.ledger-detail-card>div{border-top:1px solid #493B2914;display:flex;justify-content:space-between;align-items:center;padding-top:16px;font-size:13px}
+.ledger-detail-card strong{color:var(--blue);font-size:21px;font-weight:600}

@@ -1,0 +1,38 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Node.js dependencies and build outputs
+node_modules/
+.vercel/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.parcel-cache/
+*.tsbuildinfo
+
+# Python environments, packages, and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Test output, caches, and logs
+coverage/
+htmlcov/
+.cache/
+logs/
+*.log
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

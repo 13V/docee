@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" aria-labelledby="title">
+  <title id="title">Açaí swirl in a little bowl</title>
+  <g stroke="#0000FB" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3.5" d="M24 54c2 15 10 27 26 27 15 0 23-11 26-27"/>
+    <path stroke-width="3.3" d="M29 49c-5 1-8 3-8 5 0 4 13 7 29 7 17 0 29-3 29-7 0-2-3-4-8-5"/>
+    <path stroke-width="3.4" d="M32 51c-5-4-1-9 7-11-4-4 0-8 8-11-2-4 1-6 7-9 0 6 3 8 8 11 5 3 6 6 2 9 8 2 12 6 8 11"/>
+    <path stroke-width="2.8" d="M39 40c7 2 17 2 25 0m-17-11c3 2 9 4 14 3m-29 19c10 3 28 3 40 0"/>
+    <path stroke-width="2.7" d="M42 71c4 3 10 4 15 2"/>
+    <path stroke-width="2.8" d="m24 28 1-6m-5 4 9 2"/>
+  </g>
+</svg>

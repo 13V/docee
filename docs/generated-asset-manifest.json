@@ -1,0 +1,44 @@
+[
+  {
+    "name": "campaign-acai",
+    "source": "public/assets/generated/campaign-acai.jpg",
+    "generationFile": "exec-96f0509f-bb79-482f-b2f1-763414d0f832.png",
+    "prompt": "Use case: ads-marketing. Asset type: tall portrait mobile home campaign card, 2:3 aspect. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. A clear low glass dessert bowl filled with deep purple acai, ribboned chocolate and crushed pistachio, banana slices and strawberries, on a beige travertine cafe table. A second smaller blue ceramic bowl behind it; a cobalt spoon and rumpled beige linen. Products in upper two thirds, quiet darker warm beige tabletop across bottom third for live text overlay. Elevated cafe editorial photo, close low three-quarter perspective."
+  },
+  {
+    "name": "campaign-drinks",
+    "source": "public/assets/generated/campaign-drinks.jpg",
+    "generationFile": "exec-41d051c6-be7b-4bb0-a86f-5ed743c81483.png",
+    "prompt": "Use case: ads-marketing. Asset type: tall portrait mobile home campaign card, 2:3 aspect. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Two unbranded transparent tall glasses: vivid sky-blue smoothie with frothy pale blue top, and a layered iced matcha with milk. On sculptural beige plaster blocks, small vivid cobalt ceramic dish, beige linen, softly shadowed cafe window. Glasses prominent upper two thirds, bottom third simple warmer darker beige shadow for live UI text. Condensation, realistic creamy liquids, polished editorial still life."
+  },
+  {
+    "name": "product-acai",
+    "source": "public/assets/generated/product-acai.jpg",
+    "generationFile": "exec-67be5c53-9f0b-43b7-b488-ad1611db9224.png",
+    "prompt": "Use case: product-mockup. Asset type: square app menu/reward product photo. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Single clear low dessert bowl with deep purple acai, abundant chocolate ripple and crushed pistachio, a few banana coins and strawberry halves. One ultramarine dessert spoon beside it. Centered three-quarter overhead studio view on exact flat biscuit beige #EADCCA, clean complete bowl visible with generous 15 percent margin, realistic studio shadow."
+  },
+  {
+    "name": "product-smoothie",
+    "source": "public/assets/generated/product-smoothie.jpg",
+    "generationFile": "exec-7690ea54-2f6a-4cf2-bde9-6cc5a8a4ae7e.png",
+    "prompt": "Use case: product-mockup. Asset type: square app menu and welcome product photo. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Single tall clear glass filled with vibrant sky-blue smoothie, subtle frothy pale blue top, rich creamy texture and delicate condensation. Thin cobalt reusable straw. Centered slightly low three-quarter studio view on exact flat biscuit beige #EADCCA, complete glass visible with 15 percent margin, realistic soft shadow."
+  },
+  {
+    "name": "product-matcha",
+    "source": "public/assets/generated/product-matcha.jpg",
+    "generationFile": "exec-2da601ef-d296-43b4-a0a5-97dcbc5f85cb.png",
+    "prompt": "Use case: product-mockup. Asset type: square app menu and welcome product photo. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Single tall clear ribbed glass of iced matcha, pale milk bottom with graceful natural matcha swirls and iced green top, realistic ice and condensation. Thin cobalt reusable straw. Centered slightly low three-quarter studio view on exact flat biscuit beige #EADCCA, complete glass visible with 15 percent margin, soft shadow."
+  },
+  {
+    "name": "product-cream",
+    "source": "public/assets/generated/product-cream.jpg",
+    "generationFile": "exec-edb5f974-d7ff-4162-9346-92e04cc08981.png",
+    "prompt": "Use case: product-mockup. Asset type: square app menu product photo. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Single low clear dessert glass of hazelnut cold cream, rich vanilla and chocolate swirls, glossy chocolate topping with small wafer fragments, cobalt spoon resting beside it. Centered three-quarter overhead view on exact flat biscuit beige #EADCCA, complete glass visible with 15 percent margin, soft shadow."
+  },
+  {
+    "name": "reward-coffee",
+    "source": "public/assets/generated/reward-coffee.jpg",
+    "generationFile": "exec-102a3df2-2715-4f1e-a780-51df8923d12c.png",
+    "prompt": "Use case: product-mockup. Asset type: square app reward artwork. Cohesive premium cafe campaign photography for the Docee app. Warm biscuit beige #EADCCA environment with one vivid ultramarine #0000FB accent. Soft late afternoon sidelight, tactile plaster, ceramic and linen textures, appetizing realistic food, understated composition and sculptural shadows. No green decor, no white background, no text, lettering, logos, watermark, hands or people. Food's natural colours are allowed. Single expressive vivid cobalt blue ceramic cappuccino cup and matching saucer, glossy handmade glaze, creamy tan latte art in a heart, subtle steam and a small silver spoon. Centered three-quarter studio view on exact flat biscuit beige #EADCCA, complete cup and saucer with 15 percent margin, soft sculptural shadow."
+  }
+]

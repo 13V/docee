@@ -1,0 +1,22 @@
+    case 'activity': {
+      const entries = state.history.filter(h=>state.historyFilter==='All'||h.type===state.historyFilter.toLowerCase());
+      const monthNames = {Jan:'January',Feb:'February',Mar:'March',Apr:'April',May:'May',Jun:'June',Jul:'July',Aug:'August',Sep:'September',Oct:'October',Nov:'November',Dec:'December'};
+      const groups = new Map();
+      entries.forEach(entry=>{
+        const [,month,year] = entry.date.match(/^\d{1,2}\s+([A-Za-z]+)\s+(\d{4})$/) || [];
+        const label = month ? `${monthNames[month.slice(0,3)] || month} ${year}` : 'Recent activity';
+        if(!groups.has(label)) groups.set(label,[]);
+        groups.get(label).push(entry);
+      });
+      const historyGroups = [...groups].map(([month,items])=>`<section class="activity-history-month"><h2>${escapeHtml(month)}</h2><div class="activity-history-rows">${items.map(h=>{
+        const isVisit = h.title.startsWith('A visit to ');
+        const isReceipt = h.id.startsWith('receipt') || /receipt/i.test(h.title);
+        const title = isVisit ? h.title.slice('A visit to '.length) : h.title;
+        const symbol = h.type==='redeemed'?'gift':isReceipt?'receipt':isVisit?'pin':'plus';
+        return `<div class="activity-history-row ${h.type}"><span class="activity-history-icon">${icon(symbol)}</span><div class="activity-history-copy"><strong>${escapeHtml(title)}</strong><span>${escapeHtml(h.caption)}</span><small>${escapeHtml(h.date)}</small></div><div class="activity-history-points"><strong>${h.points>0?'+':''}${h.points}</strong><span>pts</span></div></div>`;
+      }).join('')}</div></section>`).join('');
+      const emptyHeading = state.historyFilter==='Redeemed' ? 'No redeemed rewards yet' : state.historyFilter==='Earned' ? 'No earned points yet' : 'No activity yet';
+      const emptyCopy = state.historyFilter==='Redeemed' ? 'Your redeemed rewards will appear here.' : 'Your visits and points will appear here.';
+      body = `${pageHeader('Your activity','account')}<div class="activity-polished-title"><h1>Your activity</h1></div><section class="activity-status-card" aria-label="Your points balance"><div class="activity-status-copy"><span>Your points</span><strong>${state.points}<small> points</small></strong><p>${state.voucher?'Saved reward ready':'Docee Treat Club'}</p></div><button class="activity-status-action" data-action="screen" data-screen="rewards">VIEW REWARDS</button></section><div class="segmented-control activity-polished-filters" aria-label="Filter activity">${['All','Earned','Redeemed'].map(f=>`<button data-action="history-filter" data-filter="${f}" aria-pressed="${state.historyFilter===f}" class="${state.historyFilter===f?'selected':''}">${f}</button>`).join('')}</div><div class="activity-polished-history">${entries.length?historyGroups:`<div class="activity-polished-empty">${icon('gift')}<h2>${emptyHeading}</h2><p>${emptyCopy}</p><button class="text-button" data-action="screen" data-screen="rewards">View rewards ${icon('arrow')}</button></div>`}</div>`;
+      break;
+    }
