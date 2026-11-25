@@ -19,6 +19,8 @@ const files = [
   'docee-polish.css',
   'mobile-browser.css',
   'docee-sketch.css',
+  'docee-interactions.css',
+  'interactions.js',
   'public',
   'docs',
 ];

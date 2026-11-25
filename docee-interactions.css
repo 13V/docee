@@ -1,0 +1,70 @@
+/* Docee interactions: scroll-driven active rail cards, rail pager dots and
+   view-transition screen changes. Pairs with interactions.js; loads after docee-sketch.css. */
+
+/* ---- Rails: leave headroom so the lifted card and its shadow are not clipped ---- */
+.mobile-app.sk .sk-rail{padding-top:12px;padding-bottom:28px;margin-top:-10px;margin-bottom:-22px;pointer-events:none}
+.mobile-app.sk .sk-promos{padding-top:10px;padding-bottom:28px;margin-top:-6px;margin-bottom:-28px;pointer-events:none}
+.mobile-app.sk .sk-rail>*,.mobile-app.sk .sk-promos>*{pointer-events:auto}
+
+.mobile-app.sk .sk-card{
+  border-color:var(--sk-blue);
+  transform-origin:50% 55%;
+}
+.mobile-app.sk .sk-card.is-active{box-shadow:0 14px 22px -10px rgba(36,37,214,.5),0 3px 8px rgba(22,22,58,.12)}
+
+/* Promo cards: filled when active, outlined otherwise (JS toggles is-outline / is-active) */
+.mobile-app.sk .sk-promo{border:1.5px solid transparent}
+.mobile-app.sk .sk-promo.is-outline{border-color:#FFFFFF55}
+.mobile-app.sk .sk-promo.is-active{box-shadow:0 14px 24px -10px rgba(36,37,214,.85),0 2px 8px rgba(0,0,0,.35)}
+
+@media (prefers-reduced-motion:no-preference){
+  .mobile-app.sk .sk-card,.mobile-app.sk .sk-promo{
+    transition:background-color .32s ease,color .32s ease,border-color .32s ease,transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease;
+  }
+  .mobile-app.sk .sk-card.is-active,.mobile-app.sk .sk-promo.is-active{transform:scale(1.04)}
+  .mobile-app.sk .sk-card.is-active:active,.mobile-app.sk .sk-promo.is-active:active{transform:scale(1.01)}
+  .mobile-app.sk .sk-card .sk-tag{transition:background-color .32s ease,color .32s ease,border-color .32s ease}
+  .mobile-app.sk .sk-card-art{transition:transform .38s cubic-bezier(.2,.8,.2,1)}
+  .mobile-app.sk .sk-card.is-active .sk-card-art{transform:translateY(-2px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .mobile-app.sk .sk-card,.mobile-app.sk .sk-promo{transition:none}
+  .mobile-app.sk .sk-card.is-active,.mobile-app.sk .sk-promo.is-active{transform:none}
+}
+
+/* ---- Pager dots ---- */
+.mobile-app.sk .sk-dots{display:flex;justify-content:center;align-items:center;height:28px;margin:2px 0 0;color:var(--sk-blue)}
+.mobile-app.sk .sk-dots button{position:relative;flex:none;width:44px;height:44px;margin:-8px -6px;display:grid;place-items:center;background:none;border:0;padding:0;color:inherit}
+.mobile-app.sk .sk-dots button::before{content:'';display:block;width:8px;height:8px;border-radius:99px;border:1.5px solid currentColor;box-sizing:border-box;background:transparent}
+.mobile-app.sk .sk-dots button[aria-current="true"]::before{width:22px;background:currentColor}
+@media (prefers-reduced-motion:no-preference){
+  .mobile-app.sk .sk-dots button::before{transition:width .3s cubic-bezier(.2,.8,.2,1),background-color .3s ease}
+}
+
+/* ---- View transitions ---- */
+@media (prefers-reduced-motion:no-preference){
+  /* The page shell (review header, sidebar) never animates; only the phone screen does. */
+  ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+  ::view-transition-group(root){animation:none}
+
+  ::view-transition-group(docee-screen){overflow:clip;animation-duration:.3s}
+  ::view-transition-old(docee-screen){animation:dx-out .16s ease both}
+  ::view-transition-new(docee-screen){animation:dx-in .3s cubic-bezier(.2,.8,.2,1) both}
+  html[data-dnav="forward"]{--dx-from:14px}
+  html[data-dnav="back"]{--dx-from:-14px}
+  html[data-dnav="morph"]{--dx-from:0px}
+
+  ::view-transition-group(docee-hero),::view-transition-group(docee-art){
+    animation-duration:.46s;animation-timing-function:cubic-bezier(.22,.8,.2,1);
+  }
+  ::view-transition-image-pair(docee-hero),::view-transition-image-pair(docee-art){isolation:auto}
+  ::view-transition-old(docee-hero),::view-transition-new(docee-hero){height:100%;width:100%;object-fit:cover}
+  ::view-transition-old(docee-art),::view-transition-new(docee-art){height:100%;width:100%;object-fit:contain}
+  ::view-transition-old(docee-hero){animation-duration:.2s;animation-fill-mode:both}
+
+  @keyframes dx-out{to{opacity:0}}
+  @keyframes dx-in{from{opacity:0;transform:translateX(var(--dx-from,0))}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
