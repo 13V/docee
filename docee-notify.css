@@ -1,0 +1,21 @@
+/* Docee in-app push banner (notify.js). Sits at the top of the live .mobile-app. */
+.dn-banner{position:absolute;top:8px;left:8px;right:8px;z-index:90;border-radius:22px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(1.8) blur(22px);backdrop-filter:saturate(1.8) blur(22px);box-shadow:0 10px 30px rgba(20,20,60,.22),0 1px 0 rgba(255,255,255,.7) inset;border:1px solid rgba(255,255,255,.65);touch-action:none;animation:dn-in .55s cubic-bezier(.2,1.1,.3,1) both;color:#1c1c2e}
+body.mobile-app-mode .phone-frame > .mobile-app > .dn-banner{top:calc(8px + env(safe-area-inset-top,0px));left:calc(8px + env(safe-area-inset-left,0px));right:calc(8px + env(safe-area-inset-right,0px))}
+.dn-banner.is-restored{animation:none}
+.dn-banner.is-out{animation:dn-out .3s ease-in both;pointer-events:none}
+.dn-body{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:11px;width:100%;min-height:64px;padding:11px 14px 17px;cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:22px}
+.dn-body:focus-visible{outline:2px solid #2425D6;outline-offset:-2px}
+.dn-icon{flex:none;width:40px;height:40px;border-radius:10px;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.dn-icon img{width:28px;height:28px;object-fit:contain}
+.dn-copy{display:flex;flex-direction:column;min-width:0;flex:1}
+.dn-meta{display:flex;justify-content:space-between;align-items:baseline;font:600 10px/1.2 system-ui,-apple-system,sans-serif;letter-spacing:.06em;color:#6b6b7a;margin-bottom:1px}
+.dn-now{font-weight:400;letter-spacing:0;font-size:11px}
+.dn-title{font:700 14px/1.25 system-ui,-apple-system,sans-serif;color:#14141f;overflow-wrap:anywhere}
+.dn-text{font:400 13px/1.3 system-ui,-apple-system,sans-serif;color:#3a3a4a;overflow-wrap:anywhere}
+.dn-grip{position:absolute;left:50%;bottom:6px;width:36px;height:4px;margin-left:-18px;border-radius:2px;background:rgba(60,60,80,.28);pointer-events:none}
+@keyframes dn-in{from{transform:translateY(-130%);opacity:0}to{transform:none;opacity:1}}
+@keyframes dn-out{from{transform:none;opacity:1}to{transform:translateY(-130%);opacity:0}}
+@keyframes dn-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes dn-fade-out{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){.dn-banner{animation:dn-fade-in .25s ease-out both}.dn-banner.is-out{animation:dn-fade-out .2s ease-in both}}
+@media (prefers-reduced-transparency:reduce){.dn-banner{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}

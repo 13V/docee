@@ -10,6 +10,7 @@
   const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
   const easeOut = t => 1 - Math.pow(1 - t, 3);
   const vibrate = pattern => { try { navigator.vibrate && navigator.vibrate(pattern); } catch (e) { /* unsupported */ } };
+  const announce = (name, detail) => document.dispatchEvent(new CustomEvent(name, { detail }));
   const phone = () => document.querySelector('.phone-frame .mobile-app');
   let running = false;
   let run = 0;
@@ -161,8 +162,10 @@
       if (reducedQuery.matches) {
         ptsEl.textContent = info.after;
         swapStamps(info.stampsHtml);
+        announce('docee:points-earned', info);
+        if (info.free) announce('docee:stamp-card-full', info);
         showToast(`+${info.amount} points${info.free ? ' · free drink unlocked' : ''}`);
-        if (info.unlocked) showUnlock(app, info.unlocked, false);
+        if (info.unlocked) { showUnlock(app, info.unlocked, false); announce('docee:reward-unlocked', info.unlocked); }
         return;
       }
       // 1. QR pulse and scan line (~600ms)
@@ -186,6 +189,7 @@
       if (!live()) return;
       // 2-4. +N pops, points count up, burst flies out
       vibrate([18, 40, 24]);
+      announce('docee:points-earned', info);
       pops(info);
       burst(app, centreIn(app, ptsEl.parentElement));
       ptsEl.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.18)', offset: .3 }, { transform: 'scale(1)' }], { duration: 650, easing: 'ease-out' });
@@ -194,13 +198,14 @@
       if (!live()) { await counting; return; }
       // 5. the stamp thumps in
       thump(swapStamps(info.stampsHtml));
-      if (info.free) vibrate([20, 50, 20]);
+      if (info.free) { vibrate([20, 50, 20]); announce('docee:stamp-card-full', info); }
       await counting;
       await wait(900);
       if (!live()) return;
       if (info.unlocked) {
         vibrate([24, 60, 24, 60, 50]);
         showUnlock(app, info.unlocked, true);
+        announce('docee:reward-unlocked', info.unlocked);
       }
     } finally {
       if (run === mine) running = false;
