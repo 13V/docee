@@ -31,6 +31,8 @@ const files = [
   'owner.js',
   'docee-intro.css',
   'intro.js',
+  'docee-builder.css',
+  'builder.js',
   'public',
   'docs',
 ];
