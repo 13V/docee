@@ -25,6 +25,8 @@ const files = [
   'delight.js',
   'docee-interactions.css',
   'interactions.js',
+  'docee-intro.css',
+  'intro.js',
   'public',
   'docs',
 ];

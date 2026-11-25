@@ -15,6 +15,8 @@
   const queue = [];
   const whenReady = fn => (ready ? fn() : queue.push(fn));
   const openGate = () => { ready = true; queue.splice(0).forEach(fn => fn()); };
+  /* intro.js waits for the loader: flag for late listeners plus an event for the leave path */
+  const loaderDone = () => { window.doceeLoaderDone = true; document.dispatchEvent(new CustomEvent('docee:loader-done')); };
 
   /* ---------- draw-on ---------- */
   function drawOn(svg, { dur = 520, step = 40, total = 1100 } = {}) {
@@ -42,6 +44,8 @@
       el.animate(frames, { duration: fadeOnly ? dur * .6 : dur, delay, easing: EASE, fill: 'backwards' });
     });
   }
+
+  window.doceeDrawOn = drawOn;
 
   /* ---------- per-render handling inside the phone frame ---------- */
   const seen = new Set();          // signatures of drawings already drawn
@@ -106,10 +110,11 @@
   function startLoader() {
     const loader = document.getElementById('docee-loader');
     const initialView = typeof state !== 'undefined' ? state.view : 'preview';
-    if (!loader) return openGate();
+    if (!loader) { openGate(); return loaderDone(); }
     if (reduced() || params.get('noloader') === '1' || initialView !== 'preview' || typeof sketch !== 'function') {
       loader.remove();
-      return openGate();
+      openGate();
+      return loaderDone();
     }
 
     const app = document.getElementById('app');
@@ -118,7 +123,8 @@
     if (themeMeta) themeMeta.setAttribute('content', '#2425D6');
     if (app) app.inert = true;
 
-    loader.innerHTML = `<div class="dl-inner">${sketch('mascot', 'dl-mascot')}<div class="dl-count" aria-hidden="true">loading <b>0</b>%</div></div>`;
+    const hasFor = typeof forName === 'string' && forName && typeof escapeHtml === 'function';
+    loader.innerHTML = `<div class="dl-inner">${sketch('mascot', 'dl-mascot')}<div class="dl-count${hasFor ? ' dl-for' : ''}" aria-hidden="true">${hasFor ? `loading ${escapeHtml(forName)}’s app <b>0</b>%` : 'loading <b>0</b>%'}</div></div>`;
     loader.setAttribute('role', 'status');
     loader.setAttribute('aria-label', 'Loading Docee');
     loader.removeAttribute('aria-hidden');
@@ -164,6 +170,7 @@
       if (app) app.inert = false;
       if (themeMeta && themeBefore) themeMeta.setAttribute('content', themeBefore);
       openGate();
+      loaderDone();
       setTimeout(() => {
         loader.remove();
         window.removeEventListener('resize', place);
