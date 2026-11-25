@@ -23,6 +23,8 @@ const files = [
   'docee-motion.css',
   'docee-delight.css',
   'delight.js',
+  'docee-interactions.css',
+  'interactions.js',
   'public',
   'docs',
 ];

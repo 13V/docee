@@ -156,7 +156,7 @@ function skHeader(title, back = 'home', right = '') {
 }
 function skCard(item, {action='product', active=false, tag=''} = {}) {
   const data = action==='product' ? `data-action="product" data-product="${item.id}"` : `data-action="reward" data-reward="${item.id}"`;
-  return `<button class="sk-card ${active?'is-active':''}" ${data} aria-label="${escapeHtml(item.name)}"><span class="sk-card-lead">${escapeHtml(item.lead)}</span><span class="sk-card-script hand">${escapeHtml(item.script)}</span>${sketch(item.art,'sk-card-art')}${tag?`<span class="sk-tag hand">${tag}</span>`:''}<span class="sk-card-cta">${action==='product'?'take a look':'redeem'} ${icon('arrow')}</span></button>`;
+  return `<button class="sk-card" ${data} aria-label="${escapeHtml(item.name)}"><span class="sk-card-lead">${escapeHtml(item.lead)}</span><span class="sk-card-script hand">${escapeHtml(item.script)}</span>${sketch(item.art,'sk-card-art')}${tag?`<span class="sk-tag hand">${tag}</span>`:''}<span class="sk-card-cta">${action==='product'?'take a look':'redeem'} ${icon('arrow')}</span></button>`;
 }
 function skTile(product) {
   return `<button class="sk-tile" data-action="product" data-product="${product.id}"><span class="sk-tile-name">${escapeHtml(product.lead.toLowerCase())}</span><small>${escapeHtml(product.category.toLowerCase())}</small>${sketch(product.art,'sk-tile-art')}<span class="sk-tile-cta">take a look ${icon('arrow')}</span></button>`;
@@ -390,7 +390,10 @@ function go(screen,updateUrl = true) {
   clearTimeout(toastTimer);
   if(updateUrl && window.location.hash!==`#${screen}`)window.history.pushState(null,'',`#${screen}`);
   if(state.screen==='welcome'&&screen==='signin')state.signedIn=false;
-  state.screen=screen;state.view='preview';state.error='';state.toast='';state.sheet=null;state.rewardRevealed=false;render();
+  const from=state.screen;
+  state.screen=screen;state.view='preview';state.error='';state.toast='';state.sheet=null;state.rewardRevealed=false;
+  // interactions.js may animate the DOM swap with the View Transitions API; otherwise render immediately.
+  if(window.doceeTransition)window.doceeTransition(render,{from,to:screen,pop:!updateUrl});else render();
 }
 function showToast(message) {
   state.toast=message;
