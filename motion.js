@@ -114,8 +114,7 @@
     const cinema = window.doceeCinematic;
     if (cinema && params.get('noloader') !== '1' && initialView === 'preview' && typeof sketch === 'function' && typeof sketchArt !== 'undefined') {
       /* The cinematic opening (cinematic.js) owns the whole loader: reduced motion gets a static composed frame. */
-      const who = typeof forName === 'string' && typeof escapeHtml === 'function' ? forName : '';
-      cinema.start({ loader, openGate, loaderDone, who, esc: typeof escapeHtml === 'function' ? escapeHtml : String, reduced: reduced() });
+      cinema.start({ loader, openGate, loaderDone, reduced: reduced() });
       return;
     }
     if (reduced() || params.get('noloader') === '1' || initialView !== 'preview' || typeof sketch !== 'function') {
@@ -130,8 +129,7 @@
     if (themeMeta) themeMeta.setAttribute('content', '#2425D6');
     if (app) app.inert = true;
 
-    const hasFor = typeof forName === 'string' && forName && typeof escapeHtml === 'function';
-    loader.innerHTML = `<div class="dl-inner">${sketch('mascot', 'dl-mascot')}<div class="dl-count${hasFor ? ' dl-for' : ''}" aria-hidden="true">${hasFor ? `loading ${escapeHtml(forName)}’s app <b>0</b>%` : 'loading <b>0</b>%'}</div></div>`;
+    loader.innerHTML = `<div class="dl-inner">${sketch('mascot', 'dl-mascot')}<div class="dl-count" aria-hidden="true">loading <b>0</b>%</div></div>`;
     loader.setAttribute('role', 'status');
     loader.setAttribute('aria-label', 'Loading Docee');
     loader.removeAttribute('aria-hidden');

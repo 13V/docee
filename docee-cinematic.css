@@ -12,7 +12,7 @@
 #docee-loader .cs-g [stroke-width^="1"]{stroke-width:calc(1.4px * var(--k,1))}
 
 #docee-loader .cs-skip{
-  position:absolute;top:max(10px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));
+  position:absolute;bottom:max(18px,env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right));
   min-width:44px;height:44px;padding:0 16px;border:1.5px solid #ffffff73;border-radius:22px;
   background:transparent;color:#fff;font:400 19px/1 'Docee Hand','Comic Sans MS',cursive;letter-spacing:.3px;
   cursor:pointer;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;
@@ -20,6 +20,7 @@
 }
 #docee-loader .cs-skip:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @keyframes cs-skip-in{to{opacity:.88}}
+#docee-loader.cs-handoff .cs-skip{opacity:0!important;animation:none;pointer-events:none;transition:opacity .12s ease}
 #docee-loader.cs-short .cs-skip,#docee-loader.cs-static .cs-skip{display:none}
 
 /* Reduced motion: one composed frame, faded in and out, no movement */

@@ -1,98 +1,50 @@
 'use strict';
 
-/* Docee intro: a three-card story that opens once, after the loader, plus the
-   one-time "hi <name>" sticky note on Home for personal links (?for=Sam).
+/* Docee intro: a three-card story that opens once, after the opening film.
+   Each card is one benefit for the owner: keep regulars, more revenue, less time at the till.
    - Starts on `docee:loader-done` (or at once if motion.js already finished).
    - Skip for QA with ?nointro=1. Only in the Preview view, never in the galleries.
    - Covers the viewport on phones and only the phone frame in the desktop review shell.
-   - Needs globals from app.js / sketches.js: state, forName, escapeHtml, go, sketch. */
+   - Needs globals from app.js / sketches.js: state, go, sketch. */
 (() => {
   const params = new URLSearchParams(window.location.search);
   const reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const reduced = () => reduceQuery.matches;
-  const safe = (fn, fallback) => { try { return fn(); } catch (e) { return fallback; } };
-  const who = typeof forName === 'string' ? forName : '';
-  const esc = value => (typeof escapeHtml === 'function' ? escapeHtml(value) : String(value).replace(/[&<>"']/g, ''));
 
   let root = null;
   let introOpen = false;
-
-  /* ---------- sticky note on Home (personal links only) ---------- */
-  const NOTE_KEY = 'docee-note-done';
-  let noteDone = safe(() => sessionStorage.getItem(NOTE_KEY) === '1', false);
-  let noteSeen = false;
-  const finishNote = () => {
-    noteDone = true;
-    safe(() => sessionStorage.setItem(NOTE_KEY, '1'));
-    document.querySelectorAll('.dn').forEach(el => el.remove());
-  };
-
-  function showNote(screen, view) {
-    if (!who || noteDone || introOpen) return;
-    if (view !== 'preview' || screen !== 'home') {
-      if (noteSeen && view === 'preview') finishNote(); // left Home after seeing it: that was its one showing
-      return;
-    }
-    const app = document.querySelector('.phone-frame > .mobile-app');
-    const card = app && app.querySelector('.sk-points');
-    if (!card || app.querySelector('.dn')) return;
-    noteSeen = true;
-    card.insertAdjacentHTML('beforebegin', `<aside class="dn" role="note" aria-label="A note from Docee"><p class="dn-text">hi ${esc(who)}! this is what your regulars would see</p><button type="button" class="dn-x" aria-label="Dismiss note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><svg class="dn-arrow" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4c18 4 24 16 18 32"/><path d="M14 30l12 10 6-14"/></svg></aside>`);
-    const note = app.querySelector('.dn');
-    note.querySelector('.dn-x').addEventListener('click', finishNote);
-    // Bring the note and the card it points at into view, once, unless the visitor has already scrolled.
-    const scroller = app.querySelector('.app-scroll');
-    if (scroller && !reduced() && scroller.scrollTop < 8) {
-      setTimeout(() => { if (note.isConnected && scroller.scrollTop < 8) note.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 1100);
-    }
-  }
-
-  document.addEventListener('docee:render', event => {
-    const d = event.detail || {};
-    showNote(d.screen, d.view);
-  });
 
   /* ---------- intro ---------- */
   const TONES = ['blue', 'cream', 'dark'];
   const THEME = { blue: '#2425D6', cream: '#F3F1EA', dark: '#101018' };
 
-  const scanArt = `<svg class="sketch di-step-art" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#sketch-rough)"><rect x="44" y="14" width="72" height="132" rx="12"/><path d="M70 24h20"/><path d="M60 52v-8h8M100 44h8v8M108 92v8h-8M68 100h-8v-8"/><path d="M72 62h6v6h-6zM84 62h4M72 76h4M82 76h6v6h-6zM92 70v4"/><path d="M66 128h28"/></g></svg>`;
+
+  /* Small line-art illustrations, drawn on like the app's other sketches */
+  const sk = (inner, cls = '') => `<svg class="sketch di-art-svg ${cls}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#sketch-rough)">${inner}</g></svg>`;
+  const chartArt = sk('<path d="M18 16V140H146"/><path d="M34 140v-26h18v26M62 140v-40h18v40M90 140v-62h18v62M118 140v-84h18v84" stroke-width="2.6"/><path d="M30 84c22-4 40-18 58-42 8-11 18-18 32-22M104 18h18v16" stroke-width="2.4"/><path d="M130 66l3-7 3 7-7-3h8Z" stroke-width="1.8"/><path d="M40 60h.1M52 44h.1" stroke-width="3.4"/>');
   const arrowArt = `<svg class="di-step-arrow" viewBox="0 0 28 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 11c7-3 14-3 22-1M18 3l7 7-7 7"/></svg>`;
-  const tickArt = `<svg class="di-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13c3 1 5 4 6 6 3-7 6-11 11-14"/></svg>`;
 
   function cardsHtml() {
-    const hi = who
-      ? `<span>Hi ${esc(who)} —</span><span class="indent">your regulars,</span><em class="hand">rewarded.</em>`
-      : `<span>Your regulars,</span><em class="hand">rewarded.</em>`;
     return `
       <section class="di-card" data-tone="blue" role="group" aria-roledescription="slide" aria-label="1 of 3">
         <div class="di-body">
-          <h2 class="di-title">${hi}</h2>
-          ${sketch('mascot', 'di-mascot')}
-          <p class="di-lead">A Docee app that turns every visit into a reason to come back.</p>
+          <h2 class="di-title"><span>Keep your</span><span class="indent">regulars coming</span><em class="hand">back.</em></h2>
+          <div class="di-art" aria-hidden="true">${sketch('berryStamp', 'di-art-svg')}${sketch('berryStamp', 'di-art-svg')}${sketch('berryStamp', 'di-art-svg')}<span class="di-art-arrow">${arrowArt}</span>${sketch('gift', 'di-art-svg')}</div>
+          <p class="di-lead">Points, berry stamps and birthday treats give every customer a reason to return.</p>
         </div>
       </section>
       <section class="di-card" data-tone="cream" role="group" aria-roledescription="slide" aria-label="2 of 3">
         <div class="di-body">
-          <h2 class="di-title"><span>Every visit</span><em class="hand">counts.</em></h2>
-          <ol class="di-steps">
-            <li>${scanArt}<span class="hand">scan</span></li>
-            <li class="di-sep" aria-hidden="true">${arrowArt}</li>
-            <li>${sketch('berryStamp', 'di-step-art')}<span class="hand">collect berries</span></li>
-            <li class="di-sep" aria-hidden="true">${arrowArt}</li>
-            <li>${sketch('gift', 'di-step-art')}<span class="hand">free treat</span></li>
-          </ol>
-          <p class="di-lead">Scan at the counter, collect a berry with every visit, then enjoy a treat on the house.</p>
+          <h2 class="di-title"><span>More visits,</span><span class="indent">more</span><em class="hand">revenue.</em></h2>
+          <div class="di-art di-art-solo" aria-hidden="true">${chartArt}</div>
+          <p class="di-lead">Offers fill quiet hours. Rewards lift the order. See who is back in your dashboard.</p>
         </div>
       </section>
       <section class="di-card" data-tone="dark" role="group" aria-roledescription="slide" aria-label="3 of 3">
         <div class="di-body">
-          <h2 class="di-title"><span>Built for</span><em class="hand">Docee.</em></h2>
-          <ul class="di-list">
-            <li>${tickArt}<span><b>Order ahead</b><small>skip the queue</small></span></li>
-            <li>${tickArt}<span><b>Rewards</b><small>berries, treats and birthdays</small></span></li>
-            <li>${tickArt}<span><b>Your own dashboard</b><small>and push offers to your regulars</small></span></li>
-          </ul>
+          <h2 class="di-title"><span>Less time at</span><em class="hand">the till.</em></h2>
+          <div class="di-art" aria-hidden="true">${sketch('receipt', 'di-art-svg')}<span class="di-art-arrow">${arrowArt}</span>${sketch('acai', 'di-art-svg')}</div>
+          <p class="di-lead">Bowls are made before they arrive. Scan in a second, no punch cards, fewer phone calls.</p>
         </div>
       </section>`;
   }
@@ -113,7 +65,7 @@
     root.id = 'docee-intro';
     root.setAttribute('role', 'dialog');
     root.setAttribute('aria-modal', 'true');
-    root.setAttribute('aria-label', who ? `Welcome ${who}: about Docee` : 'About Docee');
+    root.setAttribute('aria-label', 'About Docee');
     root.tabIndex = -1;
     root.dataset.tone = 'blue';
     root.innerHTML = `<div class="di-track" aria-live="off">${cardsHtml()}</div>
@@ -210,7 +162,6 @@
         const target = document.querySelector('.phone-frame .sk-next, .phone-frame .sk-hello button');
         const back = target || (opener && opener.isConnected && opener !== document.body ? opener : null);
         if (back) back.focus({ preventScroll: true });
-        showNote(state.screen, state.view);
       });
       document.dispatchEvent(new CustomEvent('docee:intro-done'));
     }
@@ -247,7 +198,7 @@
   const start = () => { try { openIntro(); } catch (e) { introOpen = false; if (root) { root.remove(); root = null; } const a = document.getElementById('app'); if (a) a.inert = false; } };
   const initialScreen = typeof state !== 'undefined' ? state : null;
   if (params.get('nointro') === '1' || !initialScreen || initialScreen.view !== 'preview') {
-    if (initialScreen) showNote(initialScreen.screen, initialScreen.view);
+    /* nothing to open */
   } else if (window.doceeLoaderDone) start();
   else document.addEventListener('docee:loader-done', start, { once: true });
 })();
