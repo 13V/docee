@@ -26,6 +26,12 @@ Use [review mode](http://127.0.0.1:4173/?review=1) to show the screen navigator 
 
 Browser viewport checks covered all fifteen screens at 390 × 844, 320 × 568, 430 × 932 and 844 × 390. They confirmed viewport sizing, no horizontal page or content overflow, anchored navigation, 44px standalone button targets and 16px text fields. A 390 × 430 form viewport retained input focus and draft values; terms fit within their dialog. Back and Forward were checked between locations and Menu, retaining the selected Firle location. These checks used browser viewport resizing; physical iOS and Android devices were not exercised.
 
+## Sharing
+
+Send the café owner a personal link by adding `?for=Name`, for example `https://your-demo-url/?for=Sam`. The name is cleaned (letters, spaces, hyphen and apostrophe, up to 24 characters) and escaped. It changes the loader caption ("loading Sam's app 47%"), the story intro, the Welcome headline ("Welcome Sam, to your little treat club!") and adds a one-time handwritten note above the points card on Home. The member in the app stays the demo member, Alex. Without the parameter the app looks as before.
+
+On first load the app shows the loader, then a three-card story intro (`intro.js`, `docee-intro.css`) that can be swiped, advanced with the next button or arrow keys, or skipped; **try the app** and **skip** land on Welcome unless a screen was linked, such as `#home`. Add `?nointro=1` to skip the intro and `?noloader=1` to skip the loader. The intro only appears in Preview, covering the phone on mobile and only the phone frame on desktop.
+
 ## Research and build preparation
 
 - [Current art direction: cobalt sketch style with line art and handwritten accents](docs/art-direction.md)

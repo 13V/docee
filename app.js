@@ -86,6 +86,8 @@ const getReward = () => rewards.find(r => r.id === state.rewardId) || rewards[0]
 const getProduct = () => products.find(p => p.id === state.productId) || products[0];
 const getStore = () => stores.find(s => s.id === state.storeId) || stores[0];
 const firstName = () => state.name.trim().split(/\s+/)[0] || 'you';
+// Personal link: ?for=Sam (letters, spaces, hyphen, apostrophe; max 24). Output is always escaped.
+const forName = (() => { const raw = new URLSearchParams(window.location.search).get('for') || ''; return raw.normalize('NFC').replace(/[^\p{L}\p{M} '\u2019-]/gu,'').replace(/\s+/g,' ').trim().slice(0,24).trim(); })();
 const normalisePhone = value => {
   let phone=String(value).replace(/[\s()-]/g,'');
   if(phone.startsWith('+61'))phone='0'+phone.slice(3);
@@ -196,7 +198,7 @@ function renderScreen(screen, gallery = false) {
   const store = getStore();
   switch(screen) {
     case 'welcome':
-      body = `<div class="sk-welcome"><h1 class="sk-welcome-title"><span>Welcome to</span><span class="indent">your little</span><em class="hand">treat club!</em></h1><p class="sk-welcome-addr">Findon Fair &amp; Firle Plaza<br/>Adelaide, SA</p><div class="sk-welcome-art"><img src="${assets}docee-mascot-white.png" alt="Docee berry mascot"/></div><ul class="sk-welcome-menu"><li class="hand">made fresh</li><li>Açaí</li><li>Smoothies</li><li>Coffee</li><li>Viral desserts</li></ul><button class="sk-next sk-cta" data-action="screen" data-screen="${state.signedIn?'home':'signin'}" aria-label="Continue to Docee">${icon('arrow')}</button></div>`;
+      body = `<div class="sk-welcome"><h1 class="sk-welcome-title"><span>${forName?`Welcome ${escapeHtml(forName)},`:'Welcome to'}</span><span class="indent">${forName?'to your little':'your little'}</span><em class="hand">treat club!</em></h1><p class="sk-welcome-addr">Findon Fair &amp; Firle Plaza<br/>Adelaide, SA</p><div class="sk-welcome-art"><img src="${assets}docee-mascot-white.png" alt="Docee berry mascot"/></div><ul class="sk-welcome-menu"><li class="hand">made fresh</li><li>Açaí</li><li>Smoothies</li><li>Coffee</li><li>Viral desserts</li></ul><button class="sk-next sk-cta" data-action="screen" data-screen="${state.signedIn?'home':'signin'}" aria-label="Continue to Docee">${icon('arrow')}</button></div>`;
       break;
     case 'signin': {
       const signup=state.authMode==='signup',draft=state.authDraft;
