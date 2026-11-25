@@ -382,3 +382,161 @@ body:not(.mobile-app-mode){background:#ECEAE2}
 .mobile-app.sk.sk-blue button.sk-cta:focus-visible,.mobile-app.sk .sk-points button.sk-cta:focus-visible,.dl-unlock-card button.sk-cta:focus-visible{outline-color:#fff}
 /* Beige accent: on cream screens give the pill a navy outline so it holds its shape */
 .mobile-app.sk.sk-cream button.sk-cta.sk-cta:enabled{border-color:var(--sk-on-accent)}
+
+/* ==== Hierarchy system (type scale, 8px spacing rhythm, button tiers) ====
+   One role = one size on every screen. Loads after the screen rules above, so it wins on ties;
+   the few rules that must beat docee-delight.css / docee-interactions.css use the .app-scroll prefix. */
+.mobile-app.sk{
+  /* type scale */
+  --t-display:48px;   /* handwritten headline word, product/reward script */
+  --t-h1:28px;        /* sans headline lines, screen title */
+  --t-label:24px;     /* handwritten section label */
+  --t-stat:44px;      /* handwritten points number */
+  --t-item:16px;      /* titles of rows and list items */
+  --t-body:15px;      /* body copy, buttons */
+  --t-caption:12px;   /* captions, notes, metadata */
+  --t-micro:11px;     /* legal and concept fine print */
+  --lh-display:1;--lh-h1:1.1;--lh-body:1.5;--lh-caption:1.4;
+  /* spacing, 8px grid */
+  --s-inner:12px;--s-group:16px;--s-section:32px;--s-2:8px;--s-3:24px;
+  /* controls */
+  --btn-h:52px;--btn-r:30px;--tap:44px;
+  --sk-cap:var(--sk-muted);
+}
+.mobile-app.sk.sk-blue{--sk-cap:#DADBFF}
+.mobile-app.sk.sk-dark{--sk-cap:#B4B4C8}
+
+/* Header -> headline -> content rhythm: 16 / 16 */
+.mobile-app.sk .sk-top{margin-bottom:0}
+.mobile-app.sk .sk-headline{margin:var(--s-group) 0 var(--s-group)}
+.mobile-app.sk .sk-headline h1,.mobile-app.sk .sk-headline.compact h1{font-size:var(--t-h1);line-height:var(--lh-h1)}
+.mobile-app.sk .sk-headline em{font-size:var(--t-display);line-height:var(--lh-display);margin:4px 4px 0 0}
+.mobile-app.sk .sk-sub{font-size:var(--t-body);line-height:var(--lh-body);color:var(--sk-muted);margin:0 0 var(--s-group);max-width:320px}
+.mobile-app.sk .sk-form{gap:var(--s-group);margin-top:0}
+.mobile-app.sk .sk-form .sk-field{gap:var(--s-2)}
+.mobile-app.sk .sk-form .button{margin-top:var(--s-2)}
+.mobile-app.sk .sk-label{font-size:20px}
+.mobile-app.sk .sk-label small,.mobile-app.sk .sk-form .field-note,.mobile-app.sk .sk-check small{font-size:var(--t-caption);line-height:var(--lh-caption);color:var(--sk-muted)}
+.mobile-app.sk .sk-check{font-size:var(--t-caption)!important}
+.mobile-app.sk .sk-check-card span{font-size:var(--t-body);line-height:1.4}
+
+/* Section labels: handwritten 24, 32 above, 12 below */
+.mobile-app.sk .sk-section,.mobile-app.sk .sk-stores-sheet .sk-section,.mobile-app.sk .account-section>h2,.mobile-app.sk .dl-stamps-title{font-size:var(--t-label);line-height:var(--lh-display);letter-spacing:.5px}
+.mobile-app.sk .sk-section{margin:var(--s-section) 0 var(--s-inner)}
+.mobile-app.sk .account-section>h2{margin:var(--s-section) 0 var(--s-inner)}
+.mobile-app.sk .sk-stores-sheet .sk-section{margin:var(--s-section) 0 var(--s-inner)}
+.mobile-app.sk .sk-fine{font-size:var(--t-micro);line-height:var(--lh-caption);color:var(--sk-cap);margin-top:var(--s-3);text-align:center}
+.mobile-app.sk .legal-note{font-size:var(--t-caption);color:var(--sk-cap);margin-top:var(--s-group)}
+
+/* Button tiers: primary = beige .sk-cta (one per screen), secondary = outlined, tertiary = text link */
+.mobile-app.sk .button{min-height:var(--btn-h);border-radius:var(--btn-r);font-size:var(--t-body)}
+.mobile-app.sk button.sk-cta.sk-cta:enabled{min-height:var(--btn-h);border-radius:var(--btn-r);font-size:var(--t-body)}
+.mobile-app.sk .button.secondary{border-color:var(--sk-blue)}
+.mobile-app.sk .text-button{min-height:var(--tap);font-size:var(--t-body);text-decoration:underline;text-underline-offset:4px;font-weight:400}
+.mobile-app.sk .sk-text-actions .text-button{font-size:var(--t-body)}
+
+/* Home: greeting (quiet) -> headline -> categories -> rail -> "your club" */
+.mobile-app.sk .sk-hello{margin:8px 0 0}
+.mobile-app.sk .sk-hello-copy strong{font-size:var(--t-body);font-weight:500}
+.mobile-app.sk .sk-hello-copy span{font-size:var(--t-caption);opacity:1;color:var(--sk-muted)}
+.mobile-app.sk .sk-list{margin:0 -20px 16px 52px}
+.mobile-app.sk .sk-list button{font-size:var(--t-body);min-height:30px}
+.mobile-app.sk .sk-showall{font-size:var(--t-caption)}
+.mobile-app.sk .sk-card-lead{font-size:var(--t-body)}
+.mobile-app.sk .sk-card-script{font-size:30px}
+.mobile-app.sk .sk-card-cta{font-size:var(--t-caption)}
+.mobile-app.sk .sk-points{margin-top:0;padding:20px 20px 16px}
+.mobile-app.sk .sk-points-label{font-size:var(--t-caption);opacity:1}
+.mobile-app.sk .sk-points-num{font-size:var(--t-stat);margin-top:4px}
+.mobile-app.sk .sk-points-num small{font-size:var(--t-label)}
+.mobile-app.sk .sk-points-note{font-size:var(--t-caption);opacity:1;margin-top:var(--s-2)}
+.mobile-app.sk .sk-points-actions{margin-top:var(--s-group)}
+.mobile-app.sk .sk-points-actions button{font-size:var(--t-body);min-height:48px}
+.mobile-app.sk .sk-link-row{font-size:var(--t-body);margin-top:var(--s-group);min-height:56px}
+.mobile-app.sk .app-scroll .dl-stamps{margin-top:var(--s-group);padding:16px 16px 12px}
+.mobile-app.sk.sk-blue .app-scroll .dl-stamps{margin-top:var(--s-section)}
+.mobile-app.sk .app-scroll .dl-stamps-head{margin-bottom:var(--s-inner)}
+.mobile-app.sk .app-scroll .dl-stamps-count{font-size:var(--t-caption);opacity:1;color:var(--sk-cap)}
+.mobile-app.sk.sk-blue .app-scroll .dl-stamps-count{color:#DADBFF}
+.mobile-app.sk .app-scroll .dl-stamps-fine{font-size:var(--t-micro);opacity:.8}
+.mobile-app.sk .dl-stamps-title{font-size:var(--t-label)}
+
+/* Club card: QR -> points (focal) -> demo (inviting, compact) -> stamps -> links */
+.mobile-app.sk .sk-qr{margin:var(--s-2) auto 0;gap:var(--s-inner)}
+.mobile-app.sk .sk-qr .qr-code{width:176px;height:176px}
+.mobile-app.sk .sk-qr span{font-size:var(--t-caption);color:var(--sk-cap)}
+.mobile-app.sk .sk-scan-copy{margin-top:var(--s-3)}
+.mobile-app.sk .sk-scan-name{font-size:var(--t-label);line-height:var(--lh-display)}
+.mobile-app.sk .sk-scan-points{font-size:var(--t-display);line-height:var(--lh-display);margin-top:4px}
+.mobile-app.sk .sk-scan-copy small{font-size:var(--t-caption);color:var(--sk-cap);margin-top:var(--s-2)}
+.mobile-app.sk .app-scroll .dl-demo-wrap{margin-top:var(--s-group)}
+.mobile-app.sk .app-scroll .dl-demo{min-height:var(--btn-h);padding:0 14px 0 24px;font-size:20px}
+.mobile-app.sk .sk-scan-art{width:96px;height:96px;margin:var(--s-3) auto 0}
+.mobile-app.sk .sk-ghost-actions{gap:var(--s-inner);margin-top:var(--s-3)}
+.mobile-app.sk .sk-ghost-actions button{min-height:var(--btn-h);font-size:var(--t-body)}
+.mobile-app.sk .sk-ghost-actions.stack{margin-top:var(--s-section)}
+.mobile-app.sk .sk-ghost-actions.stack button:last-child{border-color:transparent;min-height:var(--tap);font-size:var(--t-body);text-decoration:underline;text-underline-offset:4px;color:var(--sk-cap)}
+.mobile-app.sk .sk-redeem-art{width:176px;height:176px}
+.mobile-app.sk .sk-redeem .sk-qr{margin-top:0}
+.mobile-app.sk .sk-code{font-size:var(--t-body);letter-spacing:2px}
+
+/* Reward + product detail */
+.mobile-app.sk .sk-hero{height:256px;margin-top:var(--s-2)}
+.mobile-app.sk .sk-hero-art{width:208px;height:208px}
+.mobile-app.sk .sk-title-pair{margin-top:var(--s-group)}
+.mobile-app.sk .sk-title-pair>span{font-size:var(--t-h1);letter-spacing:-.8px;line-height:var(--lh-h1)}
+.mobile-app.sk .sk-title-pair>em{font-size:var(--t-display);line-height:var(--lh-display);margin-top:4px}
+.mobile-app.sk .sk-title-pair>p{font-size:var(--t-body);line-height:var(--lh-body);margin-top:var(--s-2)}
+.mobile-app.sk.screen-product .product-detail-copy .product-story{font-size:var(--t-body);line-height:var(--lh-body);margin-top:var(--s-2)}
+.mobile-app.sk .product-info-line{margin-top:var(--s-group);min-height:var(--tap);font-size:var(--t-caption);padding:0 14px;display:flex;align-items:center;justify-content:space-between}
+.mobile-app.sk .product-detail-note{font-size:var(--t-body);line-height:var(--lh-body);margin:var(--s-group) 0 0}
+.mobile-app.sk.screen-product .product-detail-copy .button{margin-top:var(--s-3)}
+.mobile-app.sk.screen-product .product-detail-copy .field-note{font-size:var(--t-caption);color:var(--sk-muted);text-align:center;margin:var(--s-inner) 0 0}
+.mobile-app.sk .reference-redemption{margin-top:var(--s-group)}
+.mobile-app.sk .reference-reward-help{font-size:var(--t-caption);line-height:var(--lh-caption);margin:var(--s-group) 0 var(--s-inner)}
+.mobile-app.sk.screen-reward-detail .app-scroll>.button{margin-top:0}
+.mobile-app.sk.screen-reward-detail .app-scroll>.text-button{display:flex;margin:var(--s-2) auto 0}
+
+/* Activity */
+.mobile-app.sk .sk-filter-row{margin:0 0 var(--s-group)}
+.mobile-app.sk .sk-pill{font-size:var(--t-body)}
+.mobile-app.sk .sk-balance{font-size:var(--t-label);line-height:var(--lh-display)}
+.mobile-app.sk .sk-ledger-copy strong{font-size:var(--t-item);line-height:1.3}
+.mobile-app.sk .sk-ledger-copy small{font-size:var(--t-caption);line-height:var(--lh-caption)}
+.mobile-app.sk .sk-ledger-pts{font-size:30px}
+.mobile-app.sk .sk-empty h2{font-size:var(--t-h1)}
+.mobile-app.sk .sk-empty p{font-size:var(--t-body);margin-bottom:var(--s-inner)}
+.mobile-app.sk .sk-note{margin-top:var(--s-3)}
+.mobile-app.sk .sk-note p{font-size:var(--t-caption);line-height:var(--lh-body)}
+.mobile-app.sk .sk-claim-success{margin:var(--s-group) 0}
+
+/* Discover (dark): promo -> season title -> filter -> tiles */
+.mobile-app.sk .sk-promos{margin-top:var(--s-2)}
+.mobile-app.sk .sk-promo-copy{font-size:var(--t-item)}
+.mobile-app.sk .sk-promo-cta{font-size:var(--t-caption)}
+.mobile-app.sk .sk-season{font-size:32px;margin:var(--s-section) 0 var(--s-inner);letter-spacing:1px}
+.mobile-app.sk .sk-menu-filter .sk-showall{font-size:var(--t-caption)}
+.mobile-app.sk .sk-menu-filter .sk-list{margin:0 -20px 0 26%}
+.mobile-app.sk .sk-menu-filter .sk-list button{font-size:var(--t-body)}
+.mobile-app.sk .sk-tiles{gap:var(--s-inner);margin-top:var(--s-group)}
+.mobile-app.sk .sk-tile-name{font-size:var(--t-body)}
+.mobile-app.sk .sk-tile small{font-size:var(--t-caption);color:var(--sk-cap)}
+.mobile-app.sk .sk-tile-cta{font-size:var(--t-caption)}
+
+/* Stores */
+.mobile-app.sk .sk-stores-head .sk-sub{font-size:var(--t-caption);color:var(--sk-muted)}
+.mobile-app.sk .sk-stores-head h1{font-size:clamp(48px,14vw,56px);line-height:var(--lh-display)}
+.mobile-app.sk .sk-store-copy strong{font-size:var(--t-item)}
+.mobile-app.sk .sk-store-copy small{font-size:var(--t-caption)}
+.mobile-app.sk .sk-stores-sheet .sk-fine{margin-top:var(--s-3)}
+
+/* Account */
+.mobile-app.sk .sk-account-head{margin:var(--s-2) 0 0}
+.mobile-app.sk .sk-account-copy p{font-size:var(--t-caption);color:#DADBFF}
+.mobile-app.sk .account-group .action-row strong,.mobile-app.sk .account-group .toggle-row strong{font-size:var(--t-item)}
+.mobile-app.sk .account-group .action-row small{font-size:var(--t-caption)}
+.mobile-app.sk.screen-account .button.signout{margin-top:var(--s-section);border-color:transparent;background:transparent;min-height:var(--tap);font-size:var(--t-body);text-decoration:underline;text-underline-offset:4px;width:100%;color:var(--sk-blue)}
+.mobile-app.sk.screen-account .legal-note{margin-top:var(--s-2)}
+/* Category rows stay compact (highlighter bar); an invisible 44px hit area sits over each */
+.mobile-app.sk .sk-list button{position:relative;min-height:32px}
+.mobile-app.sk .sk-list button::after{content:'';position:absolute;left:0;right:0;top:-6px;bottom:-6px}

@@ -76,6 +76,33 @@ Headline pattern: two or three sans lines at about 28px, the second line indente
 - Text fields use 16px type so iOS Safari does not zoom on focus.
 - Illustrations are decorative and should not carry meaning alone; tags and labels give the text equivalent.
 
+## Hierarchy
+
+Added 25 November 2026. One role is one size on every screen. Tokens live on `.mobile-app.sk` at the top of the "Hierarchy system" block in `docee-sketch.css`.
+
+| Role | Token | Size / line-height |
+|---|---|---|
+| Handwritten headline word, product and reward script | `--t-display` | 48 / 1 (welcome hero 56, stores city name 48-56) |
+| Sans headline and screen title | `--t-h1` | 28 / 1.1 |
+| Handwritten section label | `--t-label` | 24 / 1 |
+| Points number | `--t-stat` | 44 / 1 |
+| Row and list item titles | `--t-item` | 16 |
+| Body copy, buttons | `--t-body` | 15 / 1.5 |
+| Caption, notes, metadata | `--t-caption` | 12 / 1.4 |
+| Fine print | `--t-micro` | 11 / 1.4 |
+
+Captions use `--sk-cap` (muted `#5D5D7A` on cream, `#DADBFF` on blue, `#B4B4C8` on dark) at full opacity, so they stay legible and never match a heading's weight.
+
+Spacing is on an 8px grid: 32 between sections (`--s-section`, also above every handwritten label), 16 between groups (`--s-group`), 12 inside a group or between a label and its content (`--s-inner`), 8 for tight pairs. Top of screen: header, then 16, headline, then 16, content.
+
+Button tiers, all 52 high with a 30 radius (`--btn-h`, `--btn-r`):
+
+1. Primary: beige `.sk-cta`, exactly one per screen, the next step. Full width except the compact demo-scan pill on the club card and the round arrow on welcome.
+2. Secondary: 1.5px outlined pill, never filled.
+3. Tertiary: underlined text link, 44px target (back to rewards, back to home, log out).
+
+Club card order is QR, points (the focal number), demo scan, stamps, links. Home reads as rail, then a "your club" label, then points and stamps. Category rows stay compact but carry a 44px invisible hit area.
+
 ## Mobile browser mode
 
 Preview becomes a full-width browser app at widths up to 760px, or up to 950px when the height is 500px or less. `body.mobile-app-mode` scopes this layout. The review header, sidebar, notes, stage labels, footer, mock phone edges and simulated status/home bars are hidden. App content scrolls within the viewport. A `?review=1` URL opts back into the review interface on phones; desktop and gallery sizing remain unchanged.
