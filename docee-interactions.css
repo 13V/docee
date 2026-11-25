@@ -2,9 +2,12 @@
    view-transition screen changes. Pairs with interactions.js; loads after docee-sketch.css. */
 
 /* ---- Rails: leave headroom so the lifted card and its shadow are not clipped ---- */
-.mobile-app.sk .sk-rail{padding-top:12px;padding-bottom:28px;margin-top:-10px;margin-bottom:-22px;pointer-events:none}
-.mobile-app.sk .sk-promos{padding-top:10px;padding-bottom:28px;margin-top:-6px;margin-bottom:-28px;pointer-events:none}
-.mobile-app.sk .sk-rail>*,.mobile-app.sk .sk-promos>*{pointer-events:auto}
+.mobile-app.sk .sk-rail{padding-top:12px;padding-bottom:28px;margin-top:-10px;margin-bottom:-22px}
+.mobile-app.sk .sk-promos{padding-top:10px;padding-bottom:28px;margin-top:-6px;margin-bottom:-28px}
+/* Rails must keep pointer events: iOS Safari will not scroll a scroller with pointer-events:none,
+   even when the touch starts on a child. Content after a rail sits above its overlapping padding instead. */
+.mobile-app.sk .sk-rail,.mobile-app.sk .sk-promos{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.mobile-app.sk .sk-rail+*,.mobile-app.sk .sk-promos+*{position:relative;z-index:1}
 
 .mobile-app.sk .sk-card{
   border-color:var(--sk-blue);
