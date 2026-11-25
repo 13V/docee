@@ -1,6 +1,6 @@
 # Docee branding and app direction
 
-The current mockup follows the user's blue and beige reference. See [the final art direction](art-direction.md). The observations below record Docee's original public branding.
+The current mockup uses the sketch direction in [art direction](art-direction.md); an earlier revision followed a blue and beige reference. The observations below record Docee's original public branding.
 
 Researched 7 October 2026. Primary source: [Docee's Instagram profile](https://www.instagram.com/docee.co/?hl=en). The public profile, bio and twelve visible recent grid tiles were inspected in the browser. Full post captions and further posts required an Instagram login and were not inspected. [Captured profile](evidence/docee-instagram.png).
 

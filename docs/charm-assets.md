@@ -1,5 +1,7 @@
 # Docee charm assets
 
+Note, 25 November 2026: the charms belong to the earlier beige direction and are not used by the current sketch direction (see [art direction](art-direction.md)).
+
 Five original, transparent SVG charms add a small pen-drawn accent to the Treat Club direction. Each uses only the supplied mascot's vivid blue, `#0000FB`, on a 100 × 100 viewBox. Slightly uneven curves, round ends, and varied 2.5–3.6-unit strokes keep the family expressive without adding visual noise.
 
 | Asset | Intended use |

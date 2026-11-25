@@ -1,14 +1,16 @@
 # Docee mockups
 
-The current direction follows the user-supplied Blank Street archive and screen references, with biscuit beige `#EADCCA`, cream `#F7F1E5` and authentic Docee blue `#0000FB`. Cohesive generated café and product artwork and the supplied storefront photograph appear in the app. The current styles use the base `docee-reference.css` plus `docee-polish.css` and `activity-polished.css`. Rejected creative-draft styles are unloaded.
+The current direction is the sketch style, described in [art direction](../art-direction.md): Docee cobalt `#2425D6`, cream `#F3F1EA`, a dark menu screen, hand-drawn line-art illustration and Gochi Hand accents. It supersedes the biscuit beige and photography direction on 25 November 2026. The screenshots listed below were taken on that earlier direction, with biscuit beige `#EADCCA`, cream `#F7F1E5` and blue `#0000FB`, and do not show the current look. Open the local app to see the current screens.
 
 The current app contains fifteen screens. Store detail was removed on 8 October 2026: Select opens the chosen store's menu directly, the selected-location summary is informational, and Change location opens the picker. The earlier sixteen-screen boards and validation records below document previous revisions.
+
+Earlier beige-direction images:
 
 - [Overview](overview.jpg): launch, Home, activity, saved reward, locations and menu, aligned with the latest reference.
 - [Six reference screens](reference-screens.jpg): a closer view of those six mobile compositions.
 - [Earlier sixteen-screen board](all-screens.jpg): historical screenshot from before Store detail was removed, including signup, rewards, receipt claims, menu, locations and account.
 - [Loyalty screens](loyalty-screens.jpg): the redesigned membership pass, reward cards, reward detail, saved voucher and activity.
-- [Art direction](../art-direction.md): palette, typography, components and asset provenance.
+- [Art direction](../art-direction.md): current sketch palette, typography, illustration and components.
 - [Generated artwork and prompts](../generated-assets.md): all eight generated assets and the complete prompt set.
 - [Build brief](../app-build-brief.md): screen requirements, production states and integration decisions.
 
@@ -16,7 +18,7 @@ Open the local app at `http://127.0.0.1:4173/` and choose **All screens** to ope
 
 ## Historical validation and revision records
 
-These checks and images describe the revision named in each entry. Sixteen-screen records predate the current fifteen-screen inventory.
+Everything below describes the earlier beige and photography direction and does not show the current sketch look. These checks and images describe the revision named in each entry. Sixteen-screen records predate the current fifteen-screen inventory.
 
 JavaScript syntax checks passed. All 16 screens and the complete gallery were checked for missing images and horizontal overflow. The 390 x 844 native composition scales consistently at 390px and 320px browser widths. Signup validation, draft retention through terms sheets, birthday display, OTP/profile completion, first-name greeting, location switching and menu filtering were verified. The existing single-use reward and receipt behavior also passed isolated state checks. Demo state was reset before capturing the final board.
 

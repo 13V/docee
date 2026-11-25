@@ -1,6 +1,6 @@
 # Historical product image provenance
 
-The app now uses the generated concept artwork documented in [generated assets and prompts](generated-assets.md), following the user's imagery update request. The original merchant photographs below remain preserved for reference.
+The app previously used the generated concept artwork documented in [generated assets and prompts](generated-assets.md); redesigned screens now use line-art illustration instead (see [art direction](art-direction.md)). The original merchant photographs below remain preserved for reference.
 
 Retrieved 7 October 2026 using Agent Reach's Jina web reader from the [Docee Woodville South merchant listing](https://www.ubereats.com/au/store/docee-woodville-south/R8YCfsoNRYC0fn8cYiYifg). These are actual merchant product photographs, stored locally without alteration. The app uses the four short filenames below. The originally downloaded descriptive filenames are also retained.
 

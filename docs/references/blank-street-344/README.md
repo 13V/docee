@@ -28,4 +28,4 @@ The archive contains 344 files, with 175 distinct file hashes. 174 distinct imag
 | 157 | History | Quiet date headings, compact records and right-aligned values |
 | 163–166 | Account | Centred identity and grouped membership/settings/support rows |
 
-Docee keeps its existing loyalty functions and generated food photographs. Beige `#EADCCA`, cream `#F7F1E5` and blue `#0000FB` replace the reference palette. Charcoal is used for the primary buttons requested by the user; blue remains on signup, verification and reward redemption actions.
+This reference informed the 8 October 2026 direction, which the sketch direction in [art direction](../../art-direction.md) superseded on 25 November 2026. Docee keeps its existing loyalty functions. Beige `#EADCCA`, cream `#F7F1E5` and blue `#0000FB` replace the reference palette. Charcoal is used for the primary buttons requested by the user; blue remains on signup, verification and reward redemption actions.

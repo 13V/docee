@@ -28,7 +28,7 @@ Browser viewport checks covered all fifteen screens at 390 × 844, 320 × 568, 4
 
 ## Research and build preparation
 
-- [Current art direction: biscuit beige, cream and Docee blue](docs/art-direction.md)
+- [Current art direction: cobalt sketch style with line art and handwritten accents](docs/art-direction.md)
 - [Generated café artwork and complete prompts](docs/generated-assets.md)
 - [Mockup screen board and validation](docs/mockups/README.md)
 - [Docee branding and design direction](docs/docee-branding.md)

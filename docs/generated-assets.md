@@ -1,8 +1,10 @@
 # Generated Docee concept artwork
 
+Superseded 25 November 2026: the redesigned screens use hand-drawn line-art SVGs (see [art direction](art-direction.md)) and no longer load these images. Generated food photographs and the prompts below belong to the earlier beige and photography direction. The files are kept in `public/assets/generated/` and the other asset folders, not deleted. The two charm drafts are rejected and remain unused.
+
 ## Rejected charm drafts — 8 October 2026
 
-These two variants were rejected by the user. They remain archived in `public/assets/generated/` with their alpha transparency; neither is referenced by the current app. The final design uses native checkerboard card artwork and café photography.
+These two variants were rejected by the user. They remain archived in `public/assets/generated/` with their alpha transparency; neither is referenced by the current app. The earlier design used native checkerboard card artwork and café photography; the current design uses line-art illustration.
 
 ### reward-token.png
 
@@ -28,7 +30,7 @@ This is synthetic concept artwork, not verified photography of merchant products
 | `product-cream.jpg` | Menu and product detail |
 | `reward-coffee.jpg` | Coffee reward and its detail |
 
-The image direction uses biscuit beige surroundings, ultramarine accents, warm sidelight, tactile café materials, realistic food texture and generous framing. Natural food colours, including matcha, remain in the photographs. The app's interface uses beige and blue.
+The image direction uses biscuit beige surroundings, ultramarine accents, warm sidelight, tactile café materials, realistic food texture and generous framing. Natural food colours, including matcha, remain in the photographs. The interface of that direction used beige and blue.
 
 JPEG derivatives optimize the opaque images for the app. The transparent welcome image remains PNG. Generation prompts are recorded below.
 

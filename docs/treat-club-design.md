@@ -1,6 +1,6 @@
 # The Docee Treat Club — design and copy system
 
-Historical design direction from 7 October 2026. The current beige, cream and Docee blue revision is documented in [art direction](art-direction.md). The current prototype has fifteen screens: Store detail was removed on 8 October 2026, and selecting a location now opens its menu directly. The selected-location summary is informational, with Change location retaining access to the picker.
+Historical design direction from 7 October 2026. The beige, cream and Docee blue revision that followed was itself superseded on 25 November 2026 by the sketch direction in [art direction](art-direction.md). The current prototype has fifteen screens: Store detail was removed on 8 October 2026, and selecting a location now opens its menu directly. The selected-location summary is informational, with Change location retaining access to the picker.
 
 Approved direction, 7 October 2026: a warm-beige loyalty app with vivid-blue personality, authentic Docee food/brand imagery and a collectible Treat Club character. This refines the current useful card/photo layout; it does not introduce ordering, social feeds or a different points programme. “Docee Treat Club” is the proposed concept name, not a verified existing programme.
 
