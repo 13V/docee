@@ -361,3 +361,13 @@ body:not(.mobile-app-mode){background:#ECEAE2}
 .mobile-app.sk .account-group .action-row>.icon{width:20px;height:20px;padding:0;background:none;border-radius:0;box-shadow:none;border:0;flex:none}
 .mobile-app.sk .sk-stores-list,.mobile-app.sk .sk-stores-list>*{border-top:0}
 .mobile-app.sk .sk-stores-list{border:0;background:none;box-shadow:none}
+
+/* QA pass: tap targets, narrow promo copy, visible keyboard focus */
+.mobile-app.sk .sk-showall{display:inline-flex;align-items:center;justify-content:flex-end;min-width:44px;min-height:44px;top:-12px}
+.mobile-app.sk .sk-menu-filter .sk-showall{min-height:44px;min-width:44px;margin:-9px 0 -9px -6px;padding:0 6px;align-self:flex-start}
+.mobile-app.sk .sk-promo{height:auto;min-height:150px;padding-bottom:46px}
+.mobile-app.sk button:focus-visible,.mobile-app.sk a:focus-visible,.mobile-app.sk input:focus-visible,.mobile-app.sk summary:focus-visible{outline:2px solid var(--sk-blue);outline-offset:3px}
+.mobile-app.sk.sk-blue button:focus-visible,.mobile-app.sk.sk-blue a:focus-visible,.mobile-app.sk.sk-dark button:focus-visible,.mobile-app.sk.sk-dark a:focus-visible,.mobile-app.sk .sk-points button:focus-visible,.mobile-app.sk .sk-card.is-active:focus-visible,.mobile-app.sk .sk-promo:focus-visible{outline-color:#fff}
+.mobile-app.sk.sk-blue .sk-nav button:focus-visible{outline-color:var(--sk-blue)}
+.mobile-app.sk.sk-blue .sk-nav .nav-item.active:focus-visible{outline-color:#9C9DF0}
+@media (max-width:360px){.mobile-app.sk .sk-promo-art{width:92px;height:92px}.mobile-app.sk .sk-promo-copy{max-width:58%}}
