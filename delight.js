@@ -89,7 +89,7 @@
     plus.className = 'dl-plus';
     plus.setAttribute('aria-hidden', 'true');
     plus.textContent = `+${info.amount}`;
-    const scribble = svg('<path d="M3 6c14-4 28 2 44-2 14-3 26 1 44-1"/>', 0, '#FF3D7F', 2.2, '0 0 94 10');
+    const scribble = svg('<path d="M3 6c14-4 28 2 44-2 14-3 26 1 44-1"/>', 0, '#E8D2AE', 2.2, '0 0 94 10');
     scribble.setAttribute('preserveAspectRatio', 'none');
     plus.append(scribble);
     copy.append(plus);

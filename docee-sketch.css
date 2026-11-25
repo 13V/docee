@@ -5,7 +5,7 @@
 .mobile-app.sk{
   --sk-blue:#2425D6;--sk-blue-deep:#1A1BA6;--sk-cream:#F3F1EA;--sk-paper:#FBFAF6;--sk-ink:#101018;--sk-ink-2:#1B1B26;
   --sk-text:#16163A;--sk-muted:#5D5D7A;--sk-line:#2425D633;
-  --sk-berry:#FF3D7F;--sk-berry-deep:#F2347A;--sk-on-berry:#16163A;
+  --sk-accent:#E8D2AE;--sk-accent-deep:#DCC197;--sk-on-accent:#16163A;
   --blue:var(--sk-blue);
   --sk-bg:var(--sk-cream);--sk-fg:var(--sk-blue);--sk-sub:var(--sk-muted);--sk-edge:var(--sk-line);
   background:var(--sk-bg);color:var(--sk-text);
@@ -68,7 +68,7 @@
 .mobile-app.sk .sk-points-num small{font-size:22px}
 .mobile-app.sk .sk-points-art{width:76px;height:76px;margin:-8px -6px 0 0}
 .mobile-app.sk .sk-progress{height:6px;border-radius:6px;background:#FFFFFF40;margin-top:12px;overflow:hidden}
-.mobile-app.sk .sk-progress span{display:block;height:100%;background:var(--sk-berry);border-radius:6px}
+.mobile-app.sk .sk-progress span{display:block;height:100%;background:var(--sk-accent);border-radius:6px}
 .mobile-app.sk .sk-points-note{font-size:12px;margin-top:8px;opacity:.9}
 .mobile-app.sk .sk-points-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .mobile-app.sk .sk-points-actions button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:30px;border:1.5px solid #fff;font-size:13px;color:#fff}
@@ -373,10 +373,12 @@ body:not(.mobile-app-mode){background:#ECEAE2}
 .mobile-app.sk.sk-blue .sk-nav .nav-item.active:focus-visible{outline-color:#9C9DF0}
 @media (max-width:360px){.mobile-app.sk .sk-promo-art{width:92px;height:92px}.mobile-app.sk .sk-promo-copy{max-width:58%}}
 
-/* 10% accent: berry pink marks the single "do this next" action per screen, plus progress.
+/* 10% accent: warm beige marks the single "do this next" action per screen, plus progress.
    Navy text on pink (never white). Everything else stays cobalt, cream or white. */
-.mobile-app.sk button.sk-cta.sk-cta:enabled{background:var(--sk-berry);color:var(--sk-on-berry);border:1.5px solid var(--sk-berry);font-weight:600;cursor:pointer}
-.mobile-app.sk button.sk-cta.sk-cta:enabled:hover,.mobile-app.sk button.sk-cta.sk-cta:enabled:active{background:var(--sk-berry-deep);border-color:var(--sk-berry-deep);color:var(--sk-on-berry)}
+.mobile-app.sk button.sk-cta.sk-cta:enabled{background:var(--sk-accent);color:var(--sk-on-accent);border:1.5px solid var(--sk-accent);font-weight:600;cursor:pointer}
+.mobile-app.sk button.sk-cta.sk-cta:enabled:hover,.mobile-app.sk button.sk-cta.sk-cta:enabled:active{background:var(--sk-accent-deep);border-color:var(--sk-accent-deep);color:var(--sk-on-accent)}
 .mobile-app.sk button.sk-cta .icon{stroke:currentColor}
-.mobile-app.sk button.sk-cta:focus-visible{outline:2px solid var(--sk-on-berry);outline-offset:3px}
+.mobile-app.sk button.sk-cta:focus-visible{outline:2px solid var(--sk-on-accent);outline-offset:3px}
 .mobile-app.sk.sk-blue button.sk-cta:focus-visible,.mobile-app.sk .sk-points button.sk-cta:focus-visible,.dl-unlock-card button.sk-cta:focus-visible{outline-color:#fff}
+/* Beige accent: on cream screens give the pill a navy outline so it holds its shape */
+.mobile-app.sk.sk-cream button.sk-cta.sk-cta:enabled{border-color:var(--sk-on-accent)}
