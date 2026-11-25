@@ -17,8 +17,8 @@ The style follows a user-supplied screen recording of a third-party coffee-app c
 | Main text | `#16163A` |
 | Supporting text | `#5D5D7A` |
 | warm beige: the single next-step action and progress signals (10% accent) | `#E8D2AE` |
-| Deep berry: pressed and hover states of berry buttons | `#DCC197` |
-| Text and icons on berry | `#16163A` |
+| Deep beige: pressed and hover states of beige buttons | `#DCC197` |
+| Text and icons on beige | `#16163A` |
 
 On blue and dark screens text is white, with supporting text in a pale blue-grey or lilac. Edges are 1.5px lines in cobalt (a translucent cobalt for quiet dividers) or translucent white. The tokens are defined at the top of `docee-sketch.css`.
 
