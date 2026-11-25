@@ -12,11 +12,13 @@ await mkdir(output, { recursive: true });
 
 const files = [
   'index.html',
+  'sketches.js',
   'app.js',
   'docee-reference.css',
   'activity-polished.css',
   'docee-polish.css',
   'mobile-browser.css',
+  'docee-sketch.css',
   'public',
   'docs',
 ];

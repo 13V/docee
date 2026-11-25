@@ -1,6 +1,8 @@
 # Docee loyalty app concept
 
-A clickable mobile loyalty app mockup, informed by the supplied Blank Street screenshots and Docee's branding. The preview uses the real Docee mascot, custom generated café artwork, biscuit beige surfaces and blue accents. A separate research view includes Yo-Chi's logo.
+A clickable mobile loyalty app mockup in Docee's colours. The current UI uses a sketch style: Docee cobalt (`#2425D6`), cream (`#F3F1EA`) and a dark menu screen, white or blue line-art illustrations, and handwritten accents set in Gochi Hand beside DM Sans. The Docee mascot appears as white line art on the welcome screen. A separate research view includes Yo-Chi's logo.
+
+The sketch theme is in `docee-sketch.css` and loads after the earlier stylesheets. The line-art drawings are inline SVGs in `sketches.js`. Gochi Hand is bundled under the SIL Open Font License (`public/fonts/OFL-Gochi-Hand.txt`).
 
 Try the [live demo](https://docee-averse-s-projects.vercel.app/). The [Vercel project](https://vercel.com/averse-s-projects/docee) is connected to `main` in [13V/docee](https://github.com/13V/docee).
 
