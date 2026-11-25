@@ -1,0 +1,26 @@
+/* Docee motion: draw-on line art and the opening loader (see motion.js). */
+
+.phone-frame .sketch.draw-pending{visibility:hidden}
+
+/* Loader. Covers the viewport in mobile mode and the phone screen in the desktop review shell. */
+#docee-loader{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:#2425D6;color:#fff;overflow:hidden;touch-action:none;-webkit-tap-highlight-color:transparent;opacity:1;transition:opacity .42s ease .04s}
+#docee-loader.dl-on{display:flex}
+#docee-loader.dl-boxed{inset:auto}
+#docee-loader .dl-inner{display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .5s cubic-bezier(.3,.1,.2,1);transform:translateY(-4%)}
+#docee-loader .dl-mascot{display:block;width:min(62%,230px);width:min(62vw,230px);height:auto;overflow:visible;stroke-width:2.8}
+#docee-loader .dl-count{width:7.4em;text-align:left;font-family:'Docee Hand','Comic Sans MS',cursive;font-size:30px;line-height:1;letter-spacing:.5px;color:#fff;font-variant-numeric:tabular-nums}
+#docee-loader .dl-count b{font-weight:400}
+#docee-loader.dl-out{opacity:0;pointer-events:none}
+#docee-loader.dl-out .dl-inner{transform:translateY(-4%) scale(1.14)}
+
+/* Paint a cobalt cover before scripts run, in mobile mode only (same query as app.js). */
+#docee-loader.dl-pre{display:none}
+@media (max-width:760px),(max-width:950px) and (max-height:500px){
+  #docee-loader.dl-pre{display:block;animation:dl-failsafe 0s linear 4s forwards}
+}
+@keyframes dl-failsafe{to{visibility:hidden;pointer-events:none}}
+
+@media (prefers-reduced-motion:reduce){
+  #docee-loader{display:none!important}
+  .phone-frame .sketch.draw-pending{visibility:visible}
+}

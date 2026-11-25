@@ -161,6 +161,22 @@ const sketchArt = {
     <path d="M122 118c-4 10-10 18-18 22M130 106c-1 4-3 8-6 12" stroke-width="1.5"/>
     <path d="M136 36l3-7 3 7-7-3h8Z" stroke-width="1.8"/>
     <path d="M24 70l3-6 3 6-6-3h6Z" stroke-width="1.8"/>`,
+  mascot: `
+    <g transform="translate(8 7.2) scale(.9)">
+    <circle cx="80" cy="76" r="41"/>
+    <path d="M43.5,59.7C37.1,49.2 28.2,46.8 18.8,48.7C23.6,57 31.4,62 43.5,59.7Z"/><path d="M43.5,59.7L24,51.1"/>
+    <path d="M57.6,42.8C57.9,28 50.2,19.6 39.2,15.5C38.9,27.2 43.8,37.5 57.6,42.8Z"/><path d="M57.6,42.8L43.1,21.3"/>
+    <path d="M80,36C89.5,21.7 87.6,8.4 80,-3C72.4,8.4 70.5,21.7 80,36Z"/><path d="M80,36L80,5.4"/>
+    <path d="M102.4,42.8C116.2,37.5 121.1,27.2 120.8,15.5C109.8,19.6 102.1,28 102.4,42.8Z"/><path d="M102.4,42.8L116.9,21.3"/>
+    <path d="M116.5,59.7C128.6,62 136.4,57 141.2,48.7C131.8,46.8 122.9,49.2 116.5,59.7Z"/><path d="M116.5,59.7L136,51.1"/>
+    <circle cx="65" cy="72" r="7"/><circle cx="95" cy="72" r="7"/>
+    <circle cx="66.5" cy="73" r="2.4"/><circle cx="93.5" cy="73" r="2.4"/>
+    <path d="M56 60c3-4 8-5 12-3M92 57c4-2 9-1 12 3"/>
+    <path d="M73 85c4 4 10 4 14 0"/>
+    <path d="M72 116V131M88 116V131"/>
+    <ellipse cx="64" cy="139" rx="12" ry="8"/><ellipse cx="96" cy="139" rx="12" ry="8"/>
+    <path d="M48 148h64"/>
+    </g>`,
   bag: `<path d="M5 8h14l-1 13H6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>`,
 };
 const sketch = (name, className = '', label = '') => `<svg class="sketch ${className}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${label}"`:'aria-hidden="true"'}><g filter="url(#sketch-rough)">${sketchArt[name] || sketchArt.acai}</g></svg>`;

@@ -311,6 +311,7 @@ function render(preserveScroll = false) {
     if(content)content.scrollTop=previousScrollTop;
   }
   if(state.sheet&&state.view==='preview')document.querySelector('.phone-frame .mobile-app').insertAdjacentHTML('beforeend',renderSheet());
+  document.dispatchEvent(new CustomEvent('docee:render',{detail:{screen:state.screen,view:state.view}}));
 }
 function closeSheet(){
   const closedSheet = state.sheet;
