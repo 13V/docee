@@ -21,6 +21,7 @@ const files = [
   'docee-polish.css',
   'mobile-browser.css',
   'docee-sketch.css',
+  'docee-shell.css',
   'docee-motion.css',
   'docee-delight.css',
   'delight.js',
