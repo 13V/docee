@@ -66,7 +66,7 @@ const initialState = () => ({
   screen:'home',view:'preview',points:180,name:'Alex',email:'',phone:'0412 345 678',birthday:'',signedIn:true,
   authMode:'signup',authDraft:{name:'',email:'',phone:'',birthday:'',consent:false},
   marketing:false,notifications:true,category:'All',historyFilter:'All',rewardId:'credit',productId:'acai',storeId:'findon',
-  error:'',toast:'',claimed:false,voucher:null,sheet:null,rewardRevealed:false,activityId:null,
+  error:'',toast:'',claimed:false,voucher:null,sheet:null,rewardRevealed:false,activityId:null,stamps:6,scans:0,
   history:[
     {id:'h1',type:'earned',title:'A visit to Findon Fair',date:'5 Oct 2026',points:48,caption:'Membership scanned in store'},
     {id:'h2',type:'earned',title:'A visit to Firle Plaza',date:'29 Sep 2026',points:32,caption:'Membership scanned in store'},
@@ -171,6 +171,13 @@ function skPointsCard() {
   return `<section class="sk-points" aria-label="Your points"><div class="sk-points-top"><div><span class="sk-points-label">Docee Treat Club</span><p class="sk-points-num hand">${state.points}<small> pts</small></p></div>${sketch('gift','sk-points-art')}</div><div class="sk-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${next?next.cost:state.points}" aria-valuenow="${state.points}" aria-label="Progress to next reward"><span style="width:${pct}%"></span></div><p class="sk-points-note">${next?`${next.cost-state.points} points to ${escapeHtml(next.name.toLowerCase())}`:'Every reward is unlocked'}${ready?` · ${ready} ready now`:''}</p><div class="sk-points-actions"><button data-action="screen" data-screen="scan">${icon('scan')} scan card</button><button data-action="screen" data-screen="rewards">rewards ${icon('arrow')}</button></div></section>`;
 }
 
+/* Berry stamp card (concept data). Animation lives in delight.js; this only builds markup. */
+function skStampCard({fresh=-1} = {}) {
+  const n = Math.min(state.stamps,10), full = n>=10;
+  const cells = Array.from({length:10},(_,i)=>`<span class="dl-stamp ${i<n?'is-inked':''} ${i===fresh?'is-new':''}" style="--rot:${((i*37)%11)-5}deg"><span class="dl-stamp-disc"></span>${sketch('berryStamp','dl-stamp-art')}</span>`).join('');
+  return `<section class="dl-stamps ${full?'is-full':''}" aria-label="Berry stamp card"><div class="dl-stamps-head"><span class="dl-stamps-title hand">berry stamps</span><span class="dl-stamps-count" aria-live="polite">${full?'free drink unlocked':`${n} of 10 · your 10th drink is on us`}</span></div><div class="dl-stamps-grid" role="img" aria-label="${n} of 10 stamps collected">${cells}</div><p class="dl-stamps-fine">Concept data · stamps are illustrative</p></section>`;
+}
+
 function skField(label, control, {optional=false, className=''} = {}) {
   return `<label class="sk-field ${className}"><span class="sk-label hand">${label}${optional?'<small>optional</small>':''}</span>${control}</label>`;
 }
@@ -202,11 +209,11 @@ function renderScreen(screen, gallery = false) {
     case 'home':
       {
         const list = state.category==='All' ? products : products.filter(p=>p.category===state.category);
-        body = `<div class="sk-hello"><button class="sk-avatar" data-action="screen" data-screen="account" aria-label="Open account"><img src="${assets}docee-mascot-line.png" alt=""/></button><div class="sk-hello-copy"><strong>${escapeHtml(state.name)}</strong><span>${escapeHtml(store.name)} · ${escapeHtml(store.suburb)}</span></div><button class="sk-icon" data-action="screen" data-screen="scan" aria-label="Open club card">${icon('scan')}</button></div><div class="sk-headline"><button class="sk-showall" data-action="screen" data-screen="discover">show all</button><h1><span>Hey ${escapeHtml(firstName())}, a little</span><span class="indent">more sweet with</span><em class="hand">Docee.</em></h1></div>${skList([['All','what’s new'],['Açaí','açaí'],['Smoothies','smoothies'],['Matcha','matcha'],['Cold cream','cold cream']],state.category,'category')}<div class="sk-rail" aria-label="Featured treats">${list.map((p,i)=>skCard(p,{active:i===0,tag:p.category.toLowerCase()})).join('')}</div>${skPointsCard()}<button class="sk-link-row" data-action="screen" data-screen="claim">${icon('receipt')}<span>Missed a scan? Claim a receipt</span>${icon('arrow')}</button>`;
+        body = `<div class="sk-hello"><button class="sk-avatar" data-action="screen" data-screen="account" aria-label="Open account"><img src="${assets}docee-mascot-line.png" alt=""/></button><div class="sk-hello-copy"><strong>${escapeHtml(state.name)}</strong><span>${escapeHtml(store.name)} · ${escapeHtml(store.suburb)}</span></div><button class="sk-icon" data-action="screen" data-screen="scan" aria-label="Open club card">${icon('scan')}</button></div><div class="sk-headline"><button class="sk-showall" data-action="screen" data-screen="discover">show all</button><h1><span>Hey ${escapeHtml(firstName())}, a little</span><span class="indent">more sweet with</span><em class="hand">Docee.</em></h1></div>${skList([['All','what’s new'],['Açaí','açaí'],['Smoothies','smoothies'],['Matcha','matcha'],['Cold cream','cold cream']],state.category,'category')}<div class="sk-rail" aria-label="Featured treats">${list.map((p,i)=>skCard(p,{active:i===0,tag:p.category.toLowerCase()})).join('')}</div>${skPointsCard()}${skStampCard()}<button class="sk-link-row" data-action="screen" data-screen="claim">${icon('receipt')}<span>Missed a scan? Claim a receipt</span>${icon('arrow')}</button>`;
       }
       break;
     case 'scan':
-      body = `${skHeader('Your club card','home',`<button class="sk-icon" data-action="screen" data-screen="claim" aria-label="Claim a receipt">${icon('receipt')}</button>`)}<div class="sk-qr">${qr()}<span>scan at the counter</span></div><div class="sk-scan-copy"><p class="hand sk-scan-name">${escapeHtml(firstName())}, you have</p><p class="hand sk-scan-points">${state.points} points</p><small>Member 0000147 · Docee Treat Club</small></div>${sketch('coffee','sk-scan-art')}<div class="sk-ghost-actions"><button data-action="screen" data-screen="rewards">view rewards</button><button data-action="screen" data-screen="claim">claim a receipt</button></div>`;
+      body = `${skHeader('Your club card','home',`<button class="sk-icon" data-action="screen" data-screen="claim" aria-label="Claim a receipt">${icon('receipt')}</button>`)}<div class="sk-qr">${qr()}<span>scan at the counter</span></div><div class="dl-demo-wrap"><button class="dl-demo" data-action="demo-scan" aria-label="Try a demo scan (demo only)"><span class="hand">try a demo scan</span><em>demo</em></button></div><div class="sk-scan-copy"><p class="hand sk-scan-name">${escapeHtml(firstName())}, you have</p><p class="hand sk-scan-points"><span data-dl="pts">${state.points}</span> points</p><small>Member 0000147 · Docee Treat Club</small></div>${skStampCard()}${sketch('coffee','sk-scan-art')}<div class="sk-ghost-actions"><button data-action="screen" data-screen="rewards">view rewards</button><button data-action="screen" data-screen="claim">claim a receipt</button></div>`;
       break;
     case 'rewards':
       body = `${skHeader('Rewards','home')}<div class="sk-headline compact"><h1><span>Turn your points</span><span class="indent">into a little</span><em class="hand">treat.</em></h1></div>${skPointsCard()}${state.voucher?`<button class="sk-link-row is-blue" data-action="screen" data-screen="redeem">${icon('gift')}<span>Your saved reward is ready</span>${icon('arrow')}</button>`:''}<h2 class="sk-section hand">ready to redeem</h2><div class="sk-rail">${rewards.map(r=>{const saved=state.voucher?.rewardId===r.id;const available=state.points>=r.cost;return skCard(r,{action:'reward',active:available&&!saved&&r.id===rewards.find(x=>x.cost<=state.points)?.id,tag:saved?'saved':`${r.cost} pts`});}).join('')}</div><p class="sk-fine">1 point for every $1. Rewards are concept data for review.</p>`;
@@ -431,6 +438,16 @@ document.addEventListener('click',event=>{
     case 'sheet':state.sheet=target.dataset.sheet;render(true);document.querySelector('.sheet-close')?.focus();break;
     case 'close-sheet':closeSheet();break;
     case 'request-delete':state.sheet='delete-complete';render(true);document.querySelector('.sheet-close')?.focus();break;
+    case 'demo-scan':{
+      if(state.screen!=='scan'||window.DoceeDelight?.busy())break;
+      const before=state.points,amount=18+Math.floor(Math.random()*15);
+      state.points+=amount;state.stamps=(state.stamps>=10?0:state.stamps)+1;state.scans+=1;
+      state.history.unshift({id:'scan-demo-'+state.scans,type:'earned',title:`A visit to ${getStore().name}`,date:'25 Nov 2026',points:amount,caption:'Membership scanned in store'});
+      const unlocked=rewards.filter(r=>before<r.cost&&state.points>=r.cost).pop()||null;
+      const info={amount,before,after:state.points,stamps:state.stamps,free:state.stamps>=10,unlocked,stampsHtml:skStampCard({fresh:state.stamps-1})};
+      if(window.DoceeDelight)window.DoceeDelight.scan(info);else render(true);
+      break;
+    }
     case 'reset':clearTimeout(toastTimer);state=initialState();window.history.replaceState(null,'','#home');render();break;
   }
 });

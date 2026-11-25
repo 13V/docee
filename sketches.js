@@ -177,6 +177,11 @@ const sketchArt = {
     <ellipse cx="64" cy="139" rx="12" ry="8"/><ellipse cx="96" cy="139" rx="12" ry="8"/>
     <path d="M48 148h64"/>
     </g>`,
+  berryStamp: `
+    <path d="M80 54c-27 0-45 19-45 45 0 27 20 46 45 46s45-19 45-46c0-26-18-45-45-45Z"/>
+    <path d="M80 56c-3-14 5-27 20-31 2 15-6 27-20 31Zm0 0c-10-13-26-13-35-6 9 11 24 13 35 6Z"/>
+    <path d="M56 92c2-9 9-15 17-17"/>
+    <path d="M64 110h.1M84 120h.1M102 106h.1M98 88h.1M76 100h.1"/>`,
   bag: `<path d="M5 8h14l-1 13H6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>`,
 };
 const sketch = (name, className = '', label = '') => `<svg class="sketch ${className}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${label}"`:'aria-hidden="true"'}><g filter="url(#sketch-rough)">${sketchArt[name] || sketchArt.acai}</g></svg>`;
