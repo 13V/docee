@@ -164,37 +164,163 @@
 .mobile-app.sk .reference-redemption strong{color:var(--sk-blue)}
 .mobile-app.sk .reference-reward-help{color:var(--sk-muted);text-align:center;margin:14px 0}
 
-/* Shared controls on the remaining screens */
+/* Shared controls */
 .mobile-app.sk h1,.mobile-app.sk h2{color:inherit}
 .mobile-app.sk.sk-cream h1{color:var(--sk-blue)}
 .mobile-app.sk .button{border-radius:30px;text-transform:lowercase;font-size:14px;font-weight:500;letter-spacing:0;min-height:50px}
 .mobile-app.sk .button.primary{background:var(--sk-blue);color:#fff}
 .mobile-app.sk .button.primary:hover{background:var(--sk-blue-deep)}
 .mobile-app.sk .button.secondary{background:transparent;color:var(--sk-blue);border:1.5px solid var(--sk-blue)}
-.mobile-app.sk .button.disabled,.mobile-app.sk .button:disabled,.mobile-app.sk .button.primary:disabled{background:transparent;color:#8A8AA8;border:1.5px dashed #8A8AA8}
+.mobile-app.sk .button.disabled,.mobile-app.sk .button:disabled,.mobile-app.sk .button.primary:disabled{background:transparent!important;color:#8A8AA8;border:1.5px dashed #8A8AA8}
 .mobile-app.sk .text-button{color:var(--sk-blue);font-size:13px}
-.mobile-app.sk .page-header,.mobile-app.sk .auth-header{color:var(--sk-blue)}
-.mobile-app.sk .page-header>span{color:var(--sk-text)}
 .mobile-app.sk .icon-button{background:transparent;color:var(--sk-blue)}
-.mobile-app.sk .form input:not([type=checkbox]),.mobile-app.sk .phone-field,.mobile-app.sk .amount-field{background:var(--sk-paper);border:1.5px solid var(--sk-line);border-radius:12px;color:var(--sk-text)}
-.mobile-app.sk .form input:focus{border-color:var(--sk-blue)}
-.mobile-app.sk .phone-field input,.mobile-app.sk .amount-field input,body.mobile-app-mode .mobile-app.sk .phone-field input,body.mobile-app-mode .mobile-app.sk .amount-field input{border:0!important;background:transparent!important;box-shadow:none}
-.mobile-app.sk .phone-field,.mobile-app.sk .amount-field{overflow:hidden}
-.mobile-app.sk .auth-copy h1,.mobile-app.sk .claim-heading h1,.mobile-app.sk .activity-ledger-heading h1,.mobile-app.sk .profile-card h1,.mobile-app.sk .stores-heading h1{font-family:'Docee Hand',cursive;font-weight:400;font-size:42px;letter-spacing:.5px;line-height:1.05;color:var(--sk-blue)}
-.mobile-app.sk .account-group,.mobile-app.sk .soft-note,.mobile-app.sk .store-card,.mobile-app.sk .activity-ledger-entry,.mobile-app.sk .claim-success{background:var(--sk-paper);border:1.5px solid var(--sk-line);border-radius:16px}
-.mobile-app.sk .action-row .icon,.mobile-app.sk .round-symbol{color:var(--sk-blue)}
-.mobile-app.sk .account-section>h2{font-family:'Docee Hand',cursive;font-weight:400;font-size:24px;color:var(--sk-blue);text-transform:lowercase}
-.mobile-app.sk .avatar{background:var(--sk-blue);color:#fff}
-.mobile-app.sk .toggle-row input:checked+.toggle-ui{background:var(--sk-blue)}
-.mobile-app.sk .ledger-pill,.mobile-app.sk .store-select,.mobile-app.sk .featured-location-meta>button{background:transparent;border:1.5px solid var(--sk-blue);color:var(--sk-blue);border-radius:20px}
-.mobile-app.sk .activity-ledger-title strong{color:var(--sk-blue)}
-.mobile-app.sk .activity-ledger-entry{padding:14px 16px;margin-bottom:12px}
-.mobile-app.sk .stores-sheet{background:var(--sk-cream)}
-.mobile-app.sk .app-sheet{background:var(--sk-cream);color:var(--sk-text)}
-.mobile-app.sk .app-sheet h2{font-family:'Docee Hand',cursive;font-weight:400;font-size:32px;color:var(--sk-blue)}
-.mobile-app.sk .toast{background:var(--sk-blue);color:#fff}
 .mobile-app.sk.screen-activity .app-scroll,.mobile-app.sk.screen-scan .app-scroll,.mobile-app.sk.screen-redeem .app-scroll{background:var(--sk-bg)}
 .mobile-app.sk.screen-redeem .app-scroll{overflow-y:auto;padding:0 20px 28px}
+
+/* Headline with a small line drawing tucked in the corner */
+.mobile-app.sk .sk-headline.has-art{min-height:96px}
+.mobile-app.sk .sk-headline.two em{align-self:flex-start;padding-left:52px;margin-left:0}
+.mobile-app.sk .sk-headline-art{position:absolute;right:-4px;top:-14px;width:96px;height:96px;color:var(--sk-blue);pointer-events:none}
+.mobile-app.sk .sk-sub{font-size:14px;line-height:1.5;color:var(--sk-muted);margin:2px 0 18px;max-width:300px}
+.mobile-app.sk .sk-chev{width:14px;height:14px;transform:rotate(-90deg)}
+
+/* Sketch forms (signin, verify, profile, claim) */
+.mobile-app.sk .sk-form{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.mobile-app.sk .sk-form .sk-field{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--sk-text)}
+.mobile-app.sk .sk-label{display:flex;align-items:baseline;gap:8px;font-size:20px;line-height:1;color:var(--sk-blue);text-transform:lowercase}
+.mobile-app.sk .sk-label small{font-family:'Docee Sans',Arial,sans-serif;font-size:11px;color:var(--sk-muted);letter-spacing:0}
+.mobile-app.sk .sk-form input:not([type=checkbox]),.mobile-app.sk .sk-form .phone-field,.mobile-app.sk .sk-form .amount-field{display:flex;align-items:center;width:100%;min-height:52px;height:52px;margin:0;padding:0 16px;background:var(--sk-paper);border:1.5px solid var(--sk-blue);border-radius:14px;color:var(--sk-text);font-size:16px;box-shadow:none}
+.mobile-app.sk .sk-form input::placeholder{color:#9A9AB4;font-size:15px}
+.mobile-app.sk .sk-form input:not([type=checkbox]):focus,.mobile-app.sk .sk-form .phone-field:focus-within,.mobile-app.sk .sk-form .amount-field:focus-within{outline:0;box-shadow:0 0 0 3px #2425D626}
+.mobile-app.sk .sk-form .phone-field,.mobile-app.sk .sk-form .amount-field{gap:10px;overflow:hidden}
+.mobile-app.sk .sk-form .phone-field>span,.mobile-app.sk .sk-form .amount-field>span{flex:none;font-size:13px;color:var(--sk-blue);padding-right:10px;border-right:1.5px solid var(--sk-line);line-height:24px}
+.mobile-app.sk .sk-form .phone-field input,.mobile-app.sk .sk-form .amount-field input{flex:1;min-width:0;height:100%;min-height:0;padding:0;border:0!important;background:transparent!important;box-shadow:none!important;border-radius:0}
+.mobile-app.sk .sk-form .birthday-field>input,.mobile-app.sk .sk-form .birthday-field:not(.has-value):not(:focus-within)>input{color:var(--sk-text);appearance:none;-webkit-appearance:none;text-align:left}
+.mobile-app.sk .sk-form .birthday-field:not(.has-value):not(:focus-within)>input::-webkit-datetime-edit,.mobile-app.sk .sk-form .birthday-field:not(.has-value):not(:focus-within)>input::-webkit-calendar-picker-indicator{opacity:1}
+.mobile-app.sk .sk-form .birthday-field:not(.has-value):not(:focus-within)>input{color:#9A9AB4}
+.mobile-app.sk .sk-form .field-note{margin:-6px 0 0;font-size:12px;line-height:1.4;color:var(--sk-muted)}
+.mobile-app.sk .sk-form .otp-input{font-family:'Docee Hand',cursive;font-size:30px;letter-spacing:10px;text-align:center;padding:0 0 0 10px;color:var(--sk-blue)}
+.mobile-app.sk .sk-form .otp-input::placeholder{color:#C3C3D8;font-size:30px}
+.mobile-app.sk .sk-check{display:flex!important;align-items:center;gap:12px;min-height:44px;margin:2px 0;font-size:13px!important;line-height:1.45!important;color:var(--sk-text)}
+.mobile-app.sk .sk-check input{width:22px;height:22px;flex:none;margin:0;border:1.5px solid var(--sk-blue)!important;border-radius:7px;background-color:var(--sk-paper)}
+.mobile-app.sk .sk-check input:checked{background-color:var(--sk-blue)!important;border-color:var(--sk-blue)!important;background-position:center;background-size:16px}
+.mobile-app.sk .sk-check a,.mobile-app.sk .sk-check button{color:var(--sk-blue);text-decoration:underline;text-underline-offset:3px}
+.mobile-app.sk .sk-check small{display:block;margin-top:2px;font-size:12px;color:var(--sk-muted)}
+.mobile-app.sk .sk-check-card{padding:10px 14px;border:1.5px dashed var(--sk-line);border-radius:14px}
+.mobile-app.sk .form-error{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border:1.5px solid #B3261E;border-radius:14px;background:#FFF4F2;color:#8E1C16;font-size:13px;line-height:1.4}
+.mobile-app.sk .form-error .icon{width:18px;height:18px;flex:none;margin-top:1px}
+.mobile-app.sk .sk-form .button{margin-top:6px}
+.mobile-app.sk .auth-switch{display:flex;justify-content:center;align-items:center;gap:4px;margin:14px 0 0;padding:0;border:0;font-size:14px;color:var(--sk-muted)}
+.mobile-app.sk .auth-switch button{min-height:44px;padding:0 6px;font-family:'Docee Hand',cursive;font-size:22px;font-weight:400;letter-spacing:.5px;text-transform:lowercase;text-decoration:underline;text-underline-offset:4px;color:var(--sk-blue);margin:0}
+.mobile-app.sk .sk-text-actions{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:10px}
+.mobile-app.sk .sk-text-actions .text-button{min-height:44px;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.mobile-app.sk .sk-text-actions .text-button.muted{color:var(--sk-muted)}
+.mobile-app.sk .legal-note{text-align:center;font-size:12px;color:var(--sk-muted);margin-top:14px}
+.mobile-app.sk .legal-note button{min-height:44px;padding:0 8px;color:var(--sk-blue);text-decoration:underline;text-underline-offset:3px;font-size:12px}
+
+/* Claim */
+.mobile-app.sk .sk-note{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:14px 16px;border:1.5px dashed var(--sk-line);border-radius:14px;color:var(--sk-blue)}
+.mobile-app.sk .sk-note .icon{width:20px;height:20px;flex:none;margin-top:1px}
+.mobile-app.sk .sk-note p{font-size:13px;line-height:1.5;color:var(--sk-muted);margin:0}
+.mobile-app.sk .sk-claim-success{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin:18px 0 18px;padding:26px 20px 22px;background:var(--sk-blue);color:#fff;border-radius:22px}
+.mobile-app.sk .sk-claim-plus{font-size:58px;line-height:1;transform:rotate(-3deg)}
+.mobile-app.sk .sk-claim-success p:not(.sk-claim-plus){font-size:14px;line-height:1.5;color:#DADBFF;max-width:240px}
+.mobile-app.sk .sk-claim-balance{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;border:1.5px solid #fff;border-radius:20px;font-size:13px}
+.mobile-app.sk .sk-claim-balance .icon{width:15px;height:15px}
+
+/* Activity */
+.mobile-app.sk .sk-filter-row{display:flex;justify-content:space-between;align-items:center;margin:2px 0 14px}
+.mobile-app.sk .sk-pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px solid var(--sk-blue);border-radius:30px;font-size:13px;color:var(--sk-blue);text-transform:lowercase;background:transparent}
+.mobile-app.sk .sk-pill .sk-chev{transform:rotate(-90deg)}
+.mobile-app.sk .sk-balance{font-size:26px;line-height:1;color:var(--sk-blue)}
+.mobile-app.sk .sk-ledger{border:1.5px solid var(--sk-blue);border-radius:18px;background:var(--sk-paper);overflow:hidden}
+.mobile-app.sk .sk-ledger-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:72px;padding:12px 16px;text-align:left;color:var(--sk-text)}
+.mobile-app.sk .sk-ledger-row+.sk-ledger-row{border-top:1.5px dashed var(--sk-line)}
+.mobile-app.sk .sk-ledger-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mobile-app.sk .sk-ledger-copy strong{font-size:16px;font-weight:500;color:var(--sk-text);overflow-wrap:anywhere}
+.mobile-app.sk .sk-ledger-copy small{font-size:12px;color:var(--sk-muted)}
+.mobile-app.sk .sk-ledger-pts{flex:none;font-size:34px;line-height:1;color:var(--sk-blue)}
+.mobile-app.sk .sk-ledger-pts.is-minus{color:var(--sk-muted)}
+.mobile-app.sk .sk-empty{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 10px 0;gap:6px}
+.mobile-app.sk .sk-empty-art{width:120px;height:120px;color:var(--sk-blue)}
+.mobile-app.sk .sk-empty h2{font-size:30px;line-height:1.1;color:var(--sk-blue)}
+.mobile-app.sk .sk-empty p{font-size:14px;color:var(--sk-muted);margin-bottom:12px}
+.mobile-app.sk .sk-empty .button{width:100%}
+
+/* Stores */
+.mobile-app.sk.screen-stores .status-bar{background:transparent}
+.mobile-app.sk.screen-stores .location-map{height:190px;margin:0;border:0;border-radius:0;background:#E7E3D6}
+.mobile-app.sk.screen-stores .store-map-viewport{height:190px}
+.mobile-app.sk.screen-stores .store-map-frame{top:-40px;height:270px}
+.mobile-app.sk.screen-stores .store-map-attribution{bottom:30px}
+.mobile-app.sk.screen-stores .map-back{top:calc(40px + var(--mobile-safe-top,0px));left:16px;width:44px;height:44px;border-radius:50%;background:var(--sk-cream);border:1.5px solid var(--sk-blue);color:var(--sk-blue)}
+.mobile-app.sk.screen-stores .app-scroll{padding:0}
+.mobile-app.sk .sk-stores-sheet:before{display:none}
+.mobile-app.sk .sk-stores-sheet{position:relative;text-align:left;margin-top:-26px;min-height:0;padding:24px 20px 28px;background:var(--sk-cream);border-radius:26px 26px 0 0;border-top:1.5px solid var(--sk-blue)}
+.mobile-app.sk .sk-stores-head{display:flex;justify-content:space-between;align-items:flex-start;gap:4px;min-width:0}
+.mobile-app.sk .sk-stores-head>div{min-width:0}
+.mobile-app.sk .sk-stores-head .sk-sub{margin:0;font-size:13px}
+.mobile-app.sk .sk-stores-head h1{font-family:'Docee Hand',cursive;font-weight:400;font-size:clamp(46px,14vw,60px);line-height:1.05;letter-spacing:.5px;color:var(--sk-blue);margin:0;padding-left:clamp(0px,8vw,32px);text-align:left}
+.mobile-app.sk .sk-stores-art{flex:none;width:72px;height:72px;margin:-4px 0 0 0;color:var(--sk-blue)}
+.mobile-app.sk .sk-stores-sheet .sk-section{margin:6px 0 10px;font-size:26px}
+.mobile-app.sk .sk-stores-list{display:flex;flex-direction:column;gap:12px;margin:0}
+.mobile-app.sk .sk-store{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:6px 12px;width:100%;min-height:92px;padding:12px;border:1.5px solid var(--sk-blue);border-radius:16px;background:var(--sk-paper);color:var(--sk-blue);text-align:left}
+.mobile-app.sk .sk-store.is-active{background:var(--sk-blue);color:#fff}
+.mobile-app.sk .sk-store-thumb{flex:none;width:64px;height:64px;object-fit:cover;border-radius:12px;background:#fff;border:1.5px solid currentColor;padding:0}
+.mobile-app.sk .sk-store-thumb[src$="mascot-line.png"]{object-fit:contain;padding:6px}
+.mobile-app.sk .sk-store-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+.mobile-app.sk .sk-store-copy strong{font-size:17px;font-weight:500;letter-spacing:-.2px}
+.mobile-app.sk .sk-store-copy small{font-size:12px;line-height:1.35;color:inherit;opacity:.8}
+.mobile-app.sk .sk-store-select{grid-column:2;justify-self:start;padding:0 10px 2px;border:1.5px solid currentColor;border-radius:8px;font-size:18px;line-height:1.3;transform:rotate(-3deg)}
+.mobile-app.sk .sk-stores-sheet .sk-fine{margin-top:14px}
+
+/* Account */
+.mobile-app.sk .sk-account-head{position:relative;display:flex;align-items:center;gap:14px;margin:6px 0 4px;padding:18px 16px;background:var(--sk-blue);color:#fff;border-radius:22px}
+.mobile-app.sk .sk-account-avatar{flex:none;width:68px;height:68px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;border:1.5px solid #fff}
+.mobile-app.sk .sk-account-avatar img{width:56px;height:56px;object-fit:contain}
+.mobile-app.sk .sk-account-copy{flex:1;min-width:0}
+.mobile-app.sk.sk-cream .sk-account-copy h1,.mobile-app.sk .sk-account-copy h1{font-family:'Docee Hand',cursive;font-weight:400;font-size:38px;line-height:1.05;letter-spacing:.5px;color:#fff;overflow-wrap:anywhere;margin:0}
+.mobile-app.sk .sk-account-copy p{font-size:13px;color:#DADBFF;margin:2px 0 0}
+.mobile-app.sk .sk-account-tag{position:absolute;right:14px;top:10px;padding:0 8px 2px;border:1.5px solid #fff;border-radius:7px;font-size:16px;line-height:1.3;transform:rotate(4deg);pointer-events:none}
+.mobile-app.sk .account-section{margin:0}
+.mobile-app.sk .account-section>h2{font-family:'Docee Hand',cursive;font-weight:400;font-size:28px;line-height:1;color:var(--sk-blue);text-transform:lowercase;margin:22px 0 10px;letter-spacing:.5px}
+.mobile-app.sk .account-group{background:var(--sk-paper);border:1.5px solid var(--sk-blue);border-radius:18px;overflow:hidden;padding:0 4px}
+.mobile-app.sk .account-group .action-row,.mobile-app.sk .account-group .toggle-row{min-height:56px;padding:0 12px;border:0;border-bottom:1.5px dashed var(--sk-line);margin:0}
+.mobile-app.sk .account-group>:last-child{border-bottom:0}
+.mobile-app.sk .account-group .action-row strong,.mobile-app.sk .account-group .toggle-row strong{font-size:15px;font-weight:500;color:var(--sk-text)}
+.mobile-app.sk .account-group .action-row small{font-size:12px;color:var(--sk-muted);margin-top:2px}
+.mobile-app.sk .action-row .icon{width:18px;height:18px;color:var(--sk-blue)}
+.mobile-app.sk .toggle-row{display:flex;align-items:center;justify-content:space-between;position:relative}
+.mobile-app.sk .toggle-row input{width:52px;height:44px;right:8px}
+.mobile-app.sk .toggle-ui{width:46px;height:28px;border:1.5px solid var(--sk-blue);background:transparent;border-radius:16px}
+.mobile-app.sk .toggle-ui:after{top:3px;left:3px;width:19px;height:19px;border:1.5px solid var(--sk-blue);background:var(--sk-cream);box-shadow:none}
+.mobile-app.sk .toggle-row input:checked+.toggle-ui{background:var(--sk-blue)}
+.mobile-app.sk .toggle-row input:checked+.toggle-ui:after{left:21px;background:#fff;border-color:#fff}
+.mobile-app.sk .toggle-row input:focus-visible+.toggle-ui{outline:2px solid var(--sk-blue);outline-offset:3px}
+.mobile-app.sk .signout{margin-top:22px}
+.mobile-app.sk.screen-account .legal-note{font-style:normal;margin-top:10px}
+
+/* Bottom sheet + toast */
+.mobile-app.sk .sheet-scrim{background:#10101880}
+.mobile-app.sk .app-sheet{background:var(--sk-cream);color:var(--sk-text);border:1.5px solid var(--sk-blue);border-bottom:0;border-radius:26px 26px 0 0;padding:34px 22px 26px}
+.mobile-app.sk .app-sheet:before{top:12px;left:calc(50% - 22px);width:44px;height:0;border-top:2px dashed var(--sk-blue);background:none;border-radius:0}
+.mobile-app.sk .app-sheet h2{font-family:'Docee Hand',cursive;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:.5px;color:var(--sk-blue);margin:10px 0 14px;max-width:260px}
+.mobile-app.sk .app-sheet p{font-size:14px;line-height:1.6;color:var(--sk-muted);margin:0 0 12px}
+.mobile-app.sk .app-sheet p.sheet-footnote{font-size:12px}
+.mobile-app.sk .app-sheet .button{margin-top:14px;width:100%}
+.mobile-app.sk .app-sheet .button.danger{background:transparent;color:#B3261E;border:1.5px solid #B3261E}
+.mobile-app.sk .sheet-close{top:10px;right:10px;width:44px;height:44px;border:1.5px solid var(--sk-blue);border-radius:50%;background:var(--sk-cream);color:var(--sk-blue)}
+.mobile-app.sk .ledger-filter-options{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.mobile-app.sk .ledger-filter-options .button{margin:0}
+.mobile-app.sk .ledger-detail-date{font-size:13px;color:var(--sk-muted);margin:0 0 12px}
+.mobile-app.sk .ledger-detail-card{padding:16px;border:1.5px solid var(--sk-blue);border-radius:16px;background:var(--sk-paper);margin-bottom:6px}
+.mobile-app.sk .ledger-detail-card>span{font-size:11px;letter-spacing:1px;color:var(--sk-muted)}
+.mobile-app.sk .ledger-detail-card h3{font-size:18px;font-weight:500;color:var(--sk-text);margin:4px 0}
+.mobile-app.sk .ledger-detail-card>p{margin:0 0 12px}
+.mobile-app.sk .ledger-detail-card>div{display:flex;justify-content:space-between;align-items:center;border-top:1.5px dashed var(--sk-line);padding-top:10px;font-size:13px;color:var(--sk-muted)}
+.mobile-app.sk .ledger-detail-card>div strong{font-family:'Docee Hand',cursive;font-weight:400;font-size:34px;line-height:1;color:var(--sk-blue)}
+.mobile-app.sk .toast{display:flex;align-items:center;gap:10px;background:var(--sk-blue);color:#fff;border:1.5px solid #fff;border-radius:18px;padding:12px 16px;font-size:14px;line-height:1.4;box-shadow:0 8px 24px #2425D64D,0 0 0 1.5px var(--sk-blue)}
+.mobile-app.sk .toast .icon{flex:none;width:20px;height:20px;padding:2px;border:1.5px solid #fff;border-radius:50%}
 
 /* Floating pill navigation */
 .mobile-app.sk .sk-nav{position:relative;height:auto;display:flex;align-items:center;justify-content:space-between;gap:4px;margin:0 14px 14px;padding:6px;border:1.5px solid var(--sk-line);border-radius:40px;background:var(--sk-paper);box-shadow:0 6px 20px #2425D61A}
@@ -211,12 +337,17 @@
 
 body.mobile-app-mode{background:var(--sk-cream,#F3F1EA)}
 body.mobile-app-mode .phone-frame>.mobile-app.sk>.app-scroll{padding:0 20px 24px}
-body.mobile-app-mode .phone-frame>.mobile-app.sk.screen-welcome>.app-scroll{padding:0}
+body.mobile-app-mode .phone-frame>.mobile-app.sk.screen-welcome>.app-scroll,body.mobile-app-mode .phone-frame>.mobile-app.sk.screen-stores>.app-scroll{padding:0}
 body.mobile-app-mode .phone-frame>.mobile-app.sk.screen-redeem>.app-scroll{overflow-y:auto;padding:0 20px 24px}
 body.mobile-app-mode .mobile-app.sk .bottom-nav.sk-nav{width:auto;height:auto;padding:6px;margin:0 12px calc(10px + var(--mobile-safe-bottom))}
 body.mobile-app-mode .mobile-app.sk .sk-nav .nav-item{flex:0 0 auto;width:auto;gap:6px}
 body.mobile-app-mode .mobile-app.sk .sk-nav .nav-item small{font-size:13px;line-height:1}
 body.mobile-app-mode .mobile-app.sk .sk-top{margin-top:max(4px,var(--mobile-safe-top))}
+
+@media (max-width:340px){
+  body.mobile-app-mode .mobile-app.sk .bottom-nav.sk-nav{gap:0;margin-left:8px;margin-right:8px}
+  body.mobile-app-mode .mobile-app.sk .sk-nav .nav-item.active{padding:0 12px}
+}
 
 @media (prefers-reduced-motion:no-preference){
   .mobile-app.sk .sk-card,.mobile-app.sk .sk-tile,.mobile-app.sk .sk-promo{transition:transform .2s ease}
@@ -225,3 +356,8 @@ body.mobile-app-mode .mobile-app.sk .sk-top{margin-top:max(4px,var(--mobile-safe
 
 /* Review shell around the phone (desktop) */
 body:not(.mobile-app-mode){background:#ECEAE2}
+
+/* Row arrows: plain line icons, no badge */
+.mobile-app.sk .account-group .action-row>.icon{width:20px;height:20px;padding:0;background:none;border-radius:0;box-shadow:none;border:0;flex:none}
+.mobile-app.sk .sk-stores-list,.mobile-app.sk .sk-stores-list>*{border-top:0}
+.mobile-app.sk .sk-stores-list{border:0;background:none;box-shadow:none}

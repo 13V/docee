@@ -71,6 +71,36 @@ const sketchArt = {
     <circle cx="44" cy="62" r="7"/><circle cx="118" cy="50" r="5"/><circle cx="72" cy="38" r="4"/><circle cx="100" cy="30" r="8"/><circle cx="34" cy="92" r="4"/><circle cx="136" cy="84" r="6"/>
     <path d="M98 128l-6 24M108 126l-5 18" opacity=".6"/>
     <path d="M60 134h52" stroke-dasharray="2 6"/>`,
+  receipt: `
+    <path d="M38 20h84v120l-10.5-8-10.5 8-10.5-8-10.5 8-10.5-8-10.5 8-10.5-8-10.5 8Z"/>
+    <path d="M52 42h38M52 58h56M52 74h30M52 90h46"/>
+    <path d="M100 42h8M92 74h16" opacity=".6"/>
+    <path d="M52 112h56" stroke-dasharray="2 6"/>
+    <circle cx="126" cy="100" r="17"/><path d="M126 91v18M117 100h18"/>
+    <path d="M132 28l4-8 4 8-8-4h8ZM26 52l3-6 3 6-6-3h6Z"/>`,
+  phone: `
+    <path d="M52 14h56a10 10 0 0 1 10 10v112a10 10 0 0 1-10 10H52a10 10 0 0 1-10-10V24a10 10 0 0 1 10-10Z"/>
+    <path d="M70 24h20"/><path d="M50 34h60v92H50Z" opacity=".5"/>
+    <path d="M60 48h40a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6H82l-10 9v-9H60a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6Z"/>
+    <path d="M66 61h.1M80 61h.1M94 61h.1"/>
+    <path d="M58 100h44M58 112h28" opacity=".7"/>
+    <path d="M80 136h.1"/>
+    <path d="M128 36c6 4 8 10 6 16M136 28c10 8 12 20 8 32"/>
+    <path d="M24 92l3-6 3 6-6-3h6Z"/>`,
+  pin: `
+    <path d="M80 146C50 112 38 94 38 74a42 42 0 1 1 84 0c0 20-12 38-42 72Z"/>
+    <circle cx="80" cy="74" r="16"/>
+    <path d="M52 148c10-5 46-5 56 0" opacity=".6"/>
+    <path d="M120 140h28" stroke-dasharray="2 6"/>
+    <path d="M122 28l4-8 4 8-8-4h8ZM28 38l3-6 3 6-6-3h6Z"/>`,
+  berry: `
+    <path d="M80 50c-26 0-44 18-44 44 0 28 20 48 44 48s44-20 44-48c0-26-18-44-44-44Z"/>
+    <path d="M80 52c-4-14 4-26 18-30 2 14-6 26-18 30Zm0 0c-10-12-24-12-32-6 8 10 22 12 32 6Z"/>
+    <circle cx="64" cy="94" r="3.4"/><circle cx="96" cy="94" r="3.4"/>
+    <path d="M68 108c8 8 16 8 24 0"/>
+    <path d="M50 80c2-8 8-14 16-16" opacity=".7"/>
+    <path d="M52 112h.1M108 112h.1M84 124h.1M70 122h.1M96 122h.1" opacity=".6"/>
+    <path d="M128 40l4-8 4 8-8-4h8ZM26 70l3-6 3 6-6-3h6Z"/>`,
   bag: `<path d="M5 8h14l-1 13H6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>`,
 };
 const sketch = (name, className = '', label = '') => `<svg class="sketch ${className}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${label}"`:'aria-hidden="true"'}><g filter="url(#sketch-rough)">${sketchArt[name] || sketchArt.acai}</g></svg>`;
