@@ -89,7 +89,7 @@
     plus.className = 'dl-plus';
     plus.setAttribute('aria-hidden', 'true');
     plus.textContent = `+${info.amount}`;
-    const scribble = svg('<path d="M3 6c14-4 28 2 44-2 14-3 26 1 44-1"/>', 0, '#fff', 2.2, '0 0 94 10');
+    const scribble = svg('<path d="M3 6c14-4 28 2 44-2 14-3 26 1 44-1"/>', 0, '#FF3D7F', 2.2, '0 0 94 10');
     scribble.setAttribute('preserveAspectRatio', 'none');
     plus.append(scribble);
     copy.append(plus);
@@ -112,7 +112,7 @@
       { opacity: 1, transform: 'scale(1) rotate(0deg)' },
     ], { duration: 420, easing: 'cubic-bezier(.3,1.4,.5,1)' });
     // Ink splat: a ring and a few flicks, stroked only.
-    const ink = getComputedStyle(stampEl.closest('.dl-stamps')).getPropertyValue('--dl-disc').trim() || 'currentColor';
+    const ink = getComputedStyle(stampEl).getPropertyValue('--dl-disc').trim() || 'currentColor';
     const splat = svg('<circle cx="40" cy="40" r="26"/><path d="M40 6v7M40 67v7M6 40h7M67 40h7M16 16l5 5M64 64l-5-5M64 16l-5 5M16 64l5-5"/>', 0, ink, 2.4, '0 0 80 80');
     splat.setAttribute('class', 'dl-splat');
     stampEl.append(splat);
@@ -137,7 +137,7 @@
     closeUnlock(false);
     const wrap = document.createElement('div');
     wrap.className = 'dl-unlock';
-    wrap.innerHTML = `<div class="dl-unlock-card" role="dialog" aria-modal="true" aria-labelledby="dl-unlock-title"><div class="dl-unlock-art">${sketch('gift', 'dl-unlock-art-svg')}</div><p class="dl-unlock-kicker">you unlocked</p><h2 id="dl-unlock-title">${escapeHtml(reward.name.toLowerCase())}!</h2><button class="dl-view" data-action="reward" data-reward="${reward.id}">view it</button><button data-dl-close>keep scanning</button></div>`;
+    wrap.innerHTML = `<div class="dl-unlock-card" role="dialog" aria-modal="true" aria-labelledby="dl-unlock-title"><div class="dl-unlock-art">${sketch('gift', 'dl-unlock-art-svg')}</div><p class="dl-unlock-kicker">you unlocked</p><h2 id="dl-unlock-title">${escapeHtml(reward.name.toLowerCase())}!</h2><button class="dl-view sk-cta" data-action="reward" data-reward="${reward.id}">view it</button><button data-dl-close>keep scanning</button></div>`;
     app.append(wrap);
     wrap.querySelector('.dl-view').focus({ preventScroll: true });
     if (!animate) return;

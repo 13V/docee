@@ -16,8 +16,21 @@ The style follows a user-supplied screen recording of a third-party coffee-app c
 | Ink, second level: dark cards and sheets | `#1B1B26` |
 | Main text | `#16163A` |
 | Supporting text | `#5D5D7A` |
+| Berry pink: the single next-step action and progress signals (10% accent) | `#FF3D7F` |
+| Deep berry: pressed and hover states of berry buttons | `#F2347A` |
+| Text and icons on berry | `#16163A` |
 
 On blue and dark screens text is white, with supporting text in a pale blue-grey or lilac. Edges are 1.5px lines in cobalt (a translucent cobalt for quiet dividers) or translucent white. The tokens are defined at the top of `docee-sketch.css`.
+
+## Accent rule (60-30-10)
+
+Cream is about 60% of the surface, Docee cobalt about 30%, and berry pink the last 10%. Tokens `--sk-berry`, `--sk-berry-deep` and `--sk-on-berry` live on `.mobile-app.sk`; apply the `sk-cta` class (for example `button.primary.sk-cta`) to opt a control in.
+
+- Pink means "do this next": exactly one primary action per screen. Welcome: the round arrow. Signin, verify, profile and claim: the submit button. Home: scan card in the points card. Club card: try a demo scan. Reward detail: redeem (when affordable). Saved reward: reveal or hide reward, or explore rewards. Product: find a store. The reward-unlocked overlay: view it. Sheets stay blue.
+- Pink also marks progress: the points progress fill, the newest stamp and the +N scribble during a demo scan.
+- Text and icons on pink are navy `#16163A` at weight 600, never white. Navy on `#FF3D7F` is 5.15:1; on the pressed `#F2347A` it is 4.58:1 (the first pressed shade, `#E62E6D`, fell to 4.11:1, below AA).
+- Focus ring on pink is navy on cream and white on cobalt.
+- Never pink: bottom navigation and its active pill, highlighted list items, active rail cards, headings, tags, links, toggles and outlined secondary buttons. Disabled buttons stay a dashed outline.
 
 ## Type
 
