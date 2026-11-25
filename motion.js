@@ -111,6 +111,13 @@
     const loader = document.getElementById('docee-loader');
     const initialView = typeof state !== 'undefined' ? state.view : 'preview';
     if (!loader) { openGate(); return loaderDone(); }
+    const cinema = window.doceeCinematic;
+    if (cinema && params.get('noloader') !== '1' && initialView === 'preview' && typeof sketch === 'function' && typeof sketchArt !== 'undefined') {
+      /* The cinematic opening (cinematic.js) owns the whole loader: reduced motion gets a static composed frame. */
+      const who = typeof forName === 'string' && typeof escapeHtml === 'function' ? forName : '';
+      cinema.start({ loader, openGate, loaderDone, who, esc: typeof escapeHtml === 'function' ? escapeHtml : String, reduced: reduced() });
+      return;
+    }
     if (reduced() || params.get('noloader') === '1' || initialView !== 'preview' || typeof sketch !== 'function') {
       loader.remove();
       openGate();

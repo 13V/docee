@@ -183,5 +183,19 @@ const sketchArt = {
     <path d="M56 92c2-9 9-15 17-17"/>
     <path d="M64 110h.1M84 120h.1M102 106h.1M98 88h.1M76 100h.1"/>`,
   bag: `<path d="M5 8h14l-1 13H6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>`,
+  storefront: `
+    <path d="M6 146H154" stroke-width="3"/>
+    <path d="M18 66V146M142 66V146" stroke-width="3.2"/>
+    <path d="M34 8H126a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H34a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4Z" stroke-width="3"/>
+    <path d="M52 32v8M108 32v8" stroke-width="2"/>
+    <path d="M22 40h116l10 26H12Z" stroke-width="3.2"/>
+    <path d="M12 66a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0a8.5 9 0 0 0 17 0" stroke-width="3"/>
+    <path d="M36.5 40L29 66M65.5 40L63 66M94.5 40L97 66M123.5 40L131 66" stroke-width="1.8"/>
+    <path d="M30 84h60v42H30Z" stroke-width="3"/>
+    <path d="M25 131h70" stroke-width="2.4"/>
+    <path d="M40 118l12-16M54 118l12-16" stroke-width="1.6"/>
+    <path d="M106 146V98a14 14 0 0 1 28 0v48" stroke-width="3"/>
+    <path d="M127 124h.1" stroke-width="3.4"/>
+    <path d="M146 18l3-7 3 7-7-3h8Z" stroke-width="1.8"/>`,
 };
 const sketch = (name, className = '', label = '') => `<svg class="sketch ${className}" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${label}"`:'aria-hidden="true"'}><g filter="url(#sketch-rough)">${sketchArt[name] || sketchArt.acai}</g></svg>`;
