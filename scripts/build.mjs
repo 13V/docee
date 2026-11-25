@@ -14,11 +14,13 @@ const files = [
   'index.html',
   'sketches.js',
   'app.js',
+  'motion.js',
   'docee-reference.css',
   'activity-polished.css',
   'docee-polish.css',
   'mobile-browser.css',
   'docee-sketch.css',
+  'docee-motion.css',
   'public',
   'docs',
 ];
