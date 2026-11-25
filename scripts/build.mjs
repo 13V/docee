@@ -27,6 +27,8 @@ const files = [
   'interactions.js',
   'docee-notify.css',
   'notify.js',
+  'docee-owner.css',
+  'owner.js',
   'public',
   'docs',
 ];
